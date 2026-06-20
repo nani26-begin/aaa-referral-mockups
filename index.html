@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>AAA Lakshya — Referral System Mockups</title>
+<title>AAA Lakshya — Referral System Flow</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -11,74 +11,91 @@
 <script src="https://unpkg.com/lucide@latest"></script>
 <script>
 tailwind.config = { theme: { extend: {
-  colors: { brand: { primary:'#0a7c85', primaryDark:'#075e66', heroTeal:'#1a9ea8', secondary:'#a8dce0', subtle:'#e0f5f6', page:'#f5f9f9', success:'#2ba080', info:'#3b8fd4', warning:'#f4735a', textPrimary:'#111827', textSecondary:'#374151', textMuted:'#6b7280' } },
+  colors: { brand: { primary:'#0a7c85', primaryDark:'#075e66', heroTeal:'#1a9ea8', secondary:'#a8dce0', subtle:'#e0f5f6', page:'#f5f9f9', success:'#2ba080', successBg:'#d6f0e8', info:'#3b8fd4', infoBg:'#e0eefa', warning:'#f4735a', textPrimary:'#111827', textSecondary:'#374151', textMuted:'#6b7280' } },
   fontFamily: { sans:['Geist','ui-sans-serif','system-ui','sans-serif'] } } } }
 </script>
 <style>
   body{font-family:'Geist',ui-sans-serif,system-ui,sans-serif}
-  .card{transition:transform .15s ease, box-shadow .15s ease}
-  .card:hover{transform:translateY(-3px);box-shadow:0 12px 24px -8px rgba(10,124,133,.25)}
+  .step{transition:transform .15s ease, box-shadow .15s ease}
+  .step:hover{transform:translateY(-3px);box-shadow:0 14px 28px -10px rgba(10,124,133,.3)}
+  .lane-s{--c:#0a7c85;--bg:#e0f5f6}
+  .lane-r{--c:#2ba080;--bg:#d6f0e8}
+  .lane-a{--c:#3b8fd4;--bg:#e0eefa}
 </style>
 </head>
 <body class="bg-brand-page text-brand-textPrimary">
 
   <div class="max-w-5xl mx-auto px-6 py-12">
     <!-- Hero -->
-    <header class="text-center mb-12">
+    <header class="text-center mb-10">
       <h1 class="flex items-center justify-center gap-3 text-5xl font-extrabold text-[#1e293b]">📝 AAA Lakshya — Referral System</h1>
-      <p class="mt-4 text-2xl font-bold text-[#334155]">Interactive Mockups — Refer &amp; Earn Program</p>
-      <p class="mt-3 text-base text-[#475569]">June 20, 2026 | Phase 3 — P2 Priority</p>
-      <p class="mt-1 text-sm text-[#94a3b8]">Based on: P3-03 Referral System Spec (ORD 4.5.2, Agenda §19)</p>
+      <p class="mt-4 text-2xl font-bold text-[#334155]">Refer &amp; Earn — End-to-End Workflow</p>
+      <p class="mt-3 text-base text-[#475569]">Follow the 8 steps below in order to walk the full demo.</p>
+      <p class="mt-1 text-sm text-[#94a3b8]">P3-03 Referral System Spec (ORD 4.5.2) · decisions applied · interactive mockups</p>
     </header>
 
-    <!-- Group: Student -->
-    <section class="mb-10">
-      <div class="flex items-center gap-3 mb-4">
-        <span class="rounded-full bg-brand-subtle text-brand-primary text-xs font-semibold px-3 py-1">1 screen</span>
-        <h2 class="text-2xl font-bold text-brand-primary">Student — Refer &amp; Earn</h2>
+    <!-- Model summary -->
+    <section class="grid sm:grid-cols-2 gap-4 mb-10">
+      <div class="rounded-2xl bg-white border-l-4 border-brand-primary shadow-sm p-5">
+        <p class="font-bold flex items-center gap-2"><i data-lucide="user" class="h-5 w-5 text-brand-primary"></i>Personal student codes</p>
+        <p class="text-sm text-brand-textMuted mt-1">Every paid student gets a permanent, unlimited-use code. Earns <b>500 tokens</b> (admin-configurable) when a friend subscribes.</p>
       </div>
-      <div class="grid sm:grid-cols-2 gap-5">
-        <a href="my-referrals.html" class="card block rounded-2xl bg-white border-l-4 border-brand-primary shadow-sm p-6">
-          <div class="h-11 w-11 rounded-xl bg-brand-subtle flex items-center justify-center text-brand-primary mb-4"><i data-lucide="gift" class="h-6 w-6"></i></div>
-          <p class="font-bold text-lg">1. My Referrals Dashboard</p>
-          <p class="text-sm text-brand-textMuted mt-1">Referral code &amp; link, copy + WhatsApp/SMS/Email share, stats, rewards (earned &amp; pending), referred-friends list, tips.</p>
-        </a>
+      <div class="rounded-2xl bg-white border-l-4 border-brand-info shadow-sm p-5">
+        <p class="font-bold flex items-center gap-2"><i data-lucide="megaphone" class="h-5 w-5 text-brand-info"></i>Admin campaign codes</p>
+        <p class="text-sm text-brand-textMuted mt-1">Admin-created codes with their own discount (%/flat), validity dates, usage limit &amp; package scope. No cap — many can run at once.</p>
       </div>
     </section>
 
-    <!-- Group: Referee -->
+    <!-- Flow steps -->
     <section class="mb-10">
-      <div class="flex items-center gap-3 mb-4">
-        <span class="rounded-full bg-[#d6f0e8] text-brand-success text-xs font-semibold px-3 py-1">1 screen</span>
-        <h2 class="text-2xl font-bold text-brand-success">Referee — First Purchase</h2>
-      </div>
-      <div class="grid sm:grid-cols-2 gap-5">
-        <a href="referee-checkout.html" class="card block rounded-2xl bg-white border-l-4 border-brand-success shadow-sm p-6">
-          <div class="h-11 w-11 rounded-xl bg-[#d6f0e8] flex items-center justify-center text-brand-success mb-4"><i data-lucide="tag" class="h-6 w-6"></i></div>
-          <p class="font-bold text-lg">2. Checkout — Referral Discount</p>
-          <p class="text-sm text-brand-textMuted mt-1">"Referred by Priya" banner and a discount auto-applied to the first purchase, with a live order summary.</p>
-        </a>
-      </div>
+      <h2 class="text-2xl font-bold text-brand-primary mb-5">The Flow</h2>
+      <div id="flow" class="space-y-3"></div>
     </section>
 
-    <!-- Group: Admin -->
-    <section class="mb-10">
-      <div class="flex items-center gap-3 mb-4">
-        <span class="rounded-full bg-[#e0eefa] text-brand-info text-xs font-semibold px-3 py-1">1 screen</span>
-        <h2 class="text-2xl font-bold text-brand-info">Admin — Program Controls</h2>
-      </div>
-      <div class="grid sm:grid-cols-2 gap-5">
-        <a href="admin-referrals.html" class="card block rounded-2xl bg-white border-l-4 border-brand-info shadow-sm p-6">
-          <div class="h-11 w-11 rounded-xl bg-[#e0eefa] flex items-center justify-center text-brand-info mb-4"><i data-lucide="sliders-horizontal" class="h-6 w-6"></i></div>
-          <p class="font-bold text-lg">3. Referral Program Admin</p>
-          <p class="text-sm text-brand-textMuted mt-1">Configure reward tokens &amp; referee discount, enable/disable program, analytics (conversion, revenue, top referrers), approve/reject flagged referrals.</p>
-        </a>
-      </div>
+    <!-- Quick links -->
+    <section class="grid sm:grid-cols-3 gap-4">
+      <a href="my-referrals.html" class="step block rounded-2xl bg-white border border-[#e6e8e9] shadow-sm p-5 text-center">
+        <div class="mx-auto h-11 w-11 rounded-xl bg-brand-subtle flex items-center justify-center text-brand-primary mb-3"><i data-lucide="gift" class="h-6 w-6"></i></div>
+        <p class="font-bold">Student — My Referrals</p>
+        <p class="text-xs text-brand-textMuted mt-1">Code, share, tokens, redeem</p>
+      </a>
+      <a href="referee-checkout.html" class="step block rounded-2xl bg-white border border-[#e6e8e9] shadow-sm p-5 text-center">
+        <div class="mx-auto h-11 w-11 rounded-xl bg-brand-successBg flex items-center justify-center text-brand-success mb-3"><i data-lucide="tag" class="h-6 w-6"></i></div>
+        <p class="font-bold">Friend — Checkout</p>
+        <p class="text-xs text-brand-textMuted mt-1">Discount auto-applied</p>
+      </a>
+      <a href="admin-referrals.html" class="step block rounded-2xl bg-white border border-[#e6e8e9] shadow-sm p-5 text-center">
+        <div class="mx-auto h-11 w-11 rounded-xl bg-brand-infoBg flex items-center justify-center text-brand-info mb-3"><i data-lucide="sliders-horizontal" class="h-6 w-6"></i></div>
+        <p class="font-bold">Admin — Program</p>
+        <p class="text-xs text-brand-textMuted mt-1">Config, codes, approvals</p>
+      </a>
     </section>
 
     <p class="text-center text-xs text-brand-textMuted mt-12">AAA Lakshya · Referral System · interactive mockups for client review — not connected to the live application.</p>
   </div>
 
-<script>lucide.createIcons();</script>
+<script>
+  const steps = [
+    { n:1, lane:'lane-s', actor:'Student', icon:'gift',        title:'Open Refer & Earn, get your code',  desc:'Priya opens her dashboard and sees her permanent code AAA7K2P + shareable link.', href:'my-referrals.html', cta:'Open dashboard' },
+    { n:2, lane:'lane-s', actor:'Student', icon:'share-2',     title:'Share the link',                    desc:'Copy the link or share via WhatsApp / SMS / Email.', href:'my-referrals.html', cta:'See share options' },
+    { n:3, lane:'lane-r', actor:'Friend',  icon:'tag',         title:'Friend checks out — discount auto-applied', desc:'New friend lands on checkout: “Referred by Priya” banner + first-purchase discount applied automatically.', href:'referee-checkout.html', cta:'Open checkout' },
+    { n:4, lane:'lane-r', actor:'Friend',  icon:'credit-card', title:'Friend pays',                       desc:'Payment confirmed via Razorpay. This is the trigger for the reward.', href:'referee-checkout.html', cta:'Complete payment' },
+    { n:5, lane:'lane-s', actor:'Student', icon:'coins',       title:'500 tokens credited to Priya',      desc:'Reward fires ONLY after the friend’s payment is confirmed. Pending → Earned. Tokens never expire.', href:'my-referrals.html#wallet', cta:'See token wallet' },
+    { n:6, lane:'lane-s', actor:'Student', icon:'wallet',      title:'Redeem tokens',                     desc:'Priya redeems 1,000 tokens → ₹100 renewal discount. Request is sent for admin approval.', href:'my-referrals.html#wallet', cta:'Redeem tokens' },
+    { n:7, lane:'lane-a', actor:'Admin',   icon:'badge-check', title:'Admin approves redemption',         desc:'Tokens are deducted only after approval; the renewal discount is then issued.', href:'admin-referrals.html#redemptions', cta:'Review requests' },
+    { n:8, lane:'lane-a', actor:'Admin',   icon:'sliders-horizontal', title:'Admin runs the program',    desc:'Configure reward & discount, create campaign codes, view all referrals, review flagged activity.', href:'admin-referrals.html', cta:'Open admin' },
+  ];
+  document.getElementById('flow').innerHTML = steps.map(s=>`
+    <a href="${s.href}" class="step ${s.lane} flex items-center gap-4 rounded-2xl bg-white border border-[#e6e8e9] shadow-sm p-4 sm:p-5">
+      <span class="shrink-0 h-11 w-11 rounded-full flex items-center justify-center font-extrabold text-white" style="background:var(--c)">${s.n}</span>
+      <span class="shrink-0 h-11 w-11 rounded-xl hidden sm:flex items-center justify-center" style="background:var(--bg);color:var(--c)"><i data-lucide="${s.icon}" class="h-5 w-5"></i></span>
+      <div class="min-w-0 flex-1">
+        <div class="flex items-center gap-2"><span class="text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-full" style="background:var(--bg);color:var(--c)">${s.actor}</span><p class="font-bold truncate">${s.title}</p></div>
+        <p class="text-sm text-brand-textMuted mt-0.5">${s.desc}</p>
+      </div>
+      <span class="hidden sm:flex shrink-0 items-center gap-1 text-sm font-semibold whitespace-nowrap" style="color:var(--c)">${s.cta}<i data-lucide="arrow-right" class="h-4 w-4"></i></span>
+    </a>`).join('');
+  lucide.createIcons();
+</script>
 </body>
 </html>

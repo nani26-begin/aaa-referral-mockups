@@ -65,7 +65,7 @@ tailwind.config = { theme: { extend: {
     <!-- Header -->
     <header class="flex h-[64px] md:h-[80px] shrink-0 items-center border-b border-[#e6e8e9] bg-[rgba(246,250,250,0.85)] px-4 md:px-8 backdrop-blur">
       <a href="index.html" class="flex items-center gap-1.5 text-[13px] font-medium text-brand-textMuted hover:text-brand-primary">
-        <i data-lucide="arrow-left" class="h-4 w-4"></i> All Mockups
+        <i data-lucide="arrow-left" class="h-4 w-4"></i> Flow Home
       </a>
       <div class="ml-auto flex items-center gap-2">
         <span class="flex h-[32px] items-center rounded-full bg-brand-secondary px-4 text-[12px] md:text-[13px] font-semibold uppercase text-[#006d77]">Current Plan: Advanced</span>
@@ -84,6 +84,15 @@ tailwind.config = { theme: { extend: {
         <span class="font-medium text-brand-textSecondary">Refer &amp; Earn</span>
       </nav>
 
+      <!-- Reward-just-credited banner (Step 5) -->
+      <div class="mb-5 flex items-start gap-3 rounded-2xl border border-brand-success bg-brand-successBg px-4 py-3.5">
+        <span class="h-9 w-9 shrink-0 rounded-full bg-brand-success text-white flex items-center justify-center"><i data-lucide="party-popper" class="h-5 w-5"></i></span>
+        <div class="flex-1">
+          <p class="text-sm font-semibold text-[#1c7a5f]">You earned 500 tokens! 🪙</p>
+          <p class="text-[13px] text-[#1c7a5f]/80">Rahul Verma just subscribed to a paid plan — your referral reward was credited after his payment was confirmed.</p>
+        </div>
+      </div>
+
       <div class="mb-5">
         <h1 class="text-[22px] font-bold text-brand-textPrimary">My Referrals</h1>
         <p class="text-[14px] text-brand-textMuted">Invite friends to AAA Lakshya. They get a discount on their first plan — you earn tokens when they subscribe.</p>
@@ -98,7 +107,7 @@ tailwind.config = { theme: { extend: {
               <span class="text-3xl font-extrabold tracking-[.2em] bg-white/15 px-4 py-2 rounded-xl">AAA7K2P</span>
               <button onclick="copyText('AAA7K2P','Code copied!')" class="bg-white/20 hover:bg-white/30 px-3 py-2 rounded-xl text-sm flex items-center gap-1.5 transition"><i data-lucide="copy" class="h-4 w-4"></i>Copy</button>
             </div>
-            <p class="text-white/70 text-[12px] mt-3 flex items-center gap-1.5"><i data-lucide="lock" class="h-3.5 w-3.5"></i>Your code is permanent — share it anytime.</p>
+            <p class="text-white/70 text-[12px] mt-3 flex items-center gap-1.5"><i data-lucide="lock" class="h-3.5 w-3.5"></i>Your code is permanent &amp; unlimited — share it anytime.</p>
           </div>
           <div>
             <p class="text-white/80 text-[11px] uppercase tracking-wider mb-1.5">Shareable Link</p>
@@ -112,6 +121,25 @@ tailwind.config = { theme: { extend: {
               <button onclick="share('email')" class="flex-1 bg-white/20 hover:bg-white/30 px-3 py-2 rounded-xl text-sm font-medium flex items-center justify-center gap-1.5 transition"><i data-lucide="mail" class="h-4 w-4"></i>Email</button>
             </div>
           </div>
+        </div>
+      </section>
+
+      <!-- Token Wallet (Step 5 & 6) -->
+      <section id="wallet" class="rounded-2xl border border-[#e6e8e9] bg-white p-6 mb-6">
+        <div class="flex flex-wrap items-center justify-between gap-4">
+          <div class="flex items-center gap-4">
+            <span class="h-14 w-14 rounded-2xl bg-[#fff3cd] text-[#b8860b] flex items-center justify-center"><i data-lucide="wallet" class="h-7 w-7"></i></span>
+            <div>
+              <p class="text-sm text-brand-textMuted">Token Wallet Balance</p>
+              <p class="text-3xl font-extrabold text-brand-textPrimary"><span id="balance">2,000</span> <span class="text-base font-medium text-brand-textMuted">tokens</span></p>
+              <p class="text-xs text-brand-textMuted mt-0.5">≈ ₹200 renewal discount · 1,000 tokens = ₹100 · tokens never expire</p>
+            </div>
+          </div>
+          <button onclick="openRedeem()" class="btn-brand rounded-[12px] px-6 py-3 text-sm font-semibold flex items-center gap-2"><i data-lucide="gift" class="h-4 w-4"></i>Redeem Tokens</button>
+        </div>
+        <div id="redeemStatus" class="hidden mt-4 flex items-start gap-3 rounded-xl border border-brand-info bg-brand-infoBg px-4 py-3">
+          <i data-lucide="clock" class="h-5 w-5 text-brand-info shrink-0 mt-0.5"></i>
+          <div class="text-[13px] text-[#1d5e8c]"><b>Redemption request submitted.</b> 1,000 tokens → ₹100 renewal discount is pending admin approval. Tokens are deducted only after approval.</div>
         </div>
       </section>
 
@@ -183,6 +211,7 @@ tailwind.config = { theme: { extend: {
             <li class="flex gap-3"><span class="w-7 h-7 shrink-0 bg-brand-subtle text-brand-primary rounded-full flex items-center justify-center text-sm font-bold">1</span><div><p class="font-medium">Share your link</p><p class="text-sm text-brand-textMuted">Send your unique referral link to friends.</p></div></li>
             <li class="flex gap-3"><span class="w-7 h-7 shrink-0 bg-brand-subtle text-brand-primary rounded-full flex items-center justify-center text-sm font-bold">2</span><div><p class="font-medium">They register &amp; get a discount</p><p class="text-sm text-brand-textMuted">New friends get a discount auto-applied on their first purchase.</p></div></li>
             <li class="flex gap-3"><span class="w-7 h-7 shrink-0 bg-brand-subtle text-brand-primary rounded-full flex items-center justify-center text-sm font-bold">3</span><div><p class="font-medium">You earn tokens</p><p class="text-sm text-brand-textMuted">Once they subscribe to a paid plan you get 500 tokens. No limit, never expires.</p></div></li>
+            <li class="flex gap-3"><span class="w-7 h-7 shrink-0 bg-brand-subtle text-brand-primary rounded-full flex items-center justify-center text-sm font-bold">4</span><div><p class="font-medium">Redeem for a renewal discount</p><p class="text-sm text-brand-textMuted">Convert tokens to a discount on your next renewal (admin-approved).</p></div></li>
           </ol>
           <a href="referee-checkout.html" class="mt-4 inline-flex items-center gap-1.5 text-sm font-semibold text-brand-primary hover:underline">Preview what your friend sees at checkout <i data-lucide="arrow-right" class="h-4 w-4"></i></a>
         </div>
@@ -197,8 +226,32 @@ tailwind.config = { theme: { extend: {
         </div>
       </section>
 
+      <!-- Step nav -->
+      <div class="mt-8 flex flex-wrap items-center justify-between gap-3 rounded-2xl border border-[#e6e8e9] bg-white px-5 py-4">
+        <p class="text-sm text-brand-textMuted"><b class="text-brand-textPrimary">Next in the flow:</b> see what your friend sees at checkout.</p>
+        <a href="referee-checkout.html" class="btn-brand rounded-[12px] px-5 py-2.5 text-sm font-semibold flex items-center gap-2">Next: Friend's Checkout <i data-lucide="arrow-right" class="h-4 w-4"></i></a>
+      </div>
+
       <p class="text-center text-xs text-brand-textMuted mt-8">Referral System mockup · P3-03 · AAA Lakshya · for review only</p>
     </main>
+  </div>
+</div>
+
+<!-- Redeem modal -->
+<div id="redeemModal" class="fixed inset-0 z-50 hidden items-center justify-center bg-black/50 p-4">
+  <div class="w-full max-w-md rounded-[16px] bg-white p-6 shadow-xl">
+    <div class="flex items-center justify-between mb-4">
+      <h3 class="text-lg font-bold flex items-center gap-2"><i data-lucide="gift" class="h-5 w-5 text-brand-primary"></i>Redeem Tokens</h3>
+      <button onclick="closeRedeem()" class="h-8 w-8 rounded-full hover:bg-black/5 flex items-center justify-center text-brand-textMuted"><i data-lucide="x" class="h-4 w-4"></i></button>
+    </div>
+    <p class="text-sm text-brand-textMuted mb-4">Convert tokens into a renewal discount. <b>1,000 tokens = ₹100.</b> Minimum 1,000 tokens. Requests need admin approval.</p>
+    <label class="text-sm font-medium">Tokens to redeem</label>
+    <input id="redeemAmt" type="number" min="1000" step="1000" value="1000" oninput="calcRedeem()" class="mt-1.5 w-full rounded-[10px] border border-[#d1d5db] px-3 py-2.5 text-sm focus:ring-2 focus:ring-brand-primary outline-none">
+    <div class="mt-3 flex items-center justify-between rounded-xl bg-brand-page px-4 py-3 text-sm">
+      <span class="text-brand-textMuted">Renewal discount</span><span id="redeemValue" class="font-bold text-brand-success">₹100</span>
+    </div>
+    <p id="redeemErr" class="hidden text-xs text-brand-warning mt-2">Minimum 1,000 tokens, and not more than your balance (2,000).</p>
+    <button onclick="submitRedeem()" class="btn-brand mt-5 w-full rounded-[12px] py-3 text-sm font-semibold">Submit for Approval</button>
   </div>
 </div>
 
@@ -232,6 +285,21 @@ tailwind.config = { theme: { extend: {
   function share(ch){ const link=document.getElementById("refLink").value; const msg=`Join me on AAA Lakshya and get a discount on your first plan! ${link}`;
     const urls={ whatsapp:`https://wa.me/?text=${encodeURIComponent(msg)}`, sms:`sms:?body=${encodeURIComponent(msg)}`, email:`mailto:?subject=${encodeURIComponent("Join me on AAA Lakshya")}&body=${encodeURIComponent(msg)}` };
     window.open(urls[ch],"_blank"); showToast("Opening "+ch+"…"); }
+
+  const BAL=2000;
+  function openRedeem(){ const m=document.getElementById("redeemModal"); m.classList.remove("hidden"); m.classList.add("flex"); calcRedeem(); lucide.createIcons(); }
+  function closeRedeem(){ const m=document.getElementById("redeemModal"); m.classList.add("hidden"); m.classList.remove("flex"); }
+  function calcRedeem(){ const v=+document.getElementById("redeemAmt").value||0; document.getElementById("redeemValue").textContent="₹"+Math.floor(v/10); }
+  function submitRedeem(){ const v=+document.getElementById("redeemAmt").value||0;
+    if(v<1000||v>BAL||v%1!==0){ document.getElementById("redeemErr").classList.remove("hidden"); return; }
+    document.getElementById("redeemErr").classList.add("hidden");
+    closeRedeem();
+    document.getElementById("redeemStatus").classList.remove("hidden");
+    document.getElementById("redeemStatus").querySelector("div").innerHTML=`<b>Redemption request submitted.</b> ${v.toLocaleString()} tokens → ₹${Math.floor(v/10)} renewal discount is pending admin approval. Tokens are deducted only after approval.`;
+    document.getElementById("wallet").scrollIntoView({behavior:"smooth"});
+    showToast("Sent for admin approval");
+    lucide.createIcons();
+  }
   lucide.createIcons();
 </script>
 </body>

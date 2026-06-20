@@ -28,6 +28,8 @@ tailwind.config = { theme: { extend: {
   .slider:before{content:"";position:absolute;height:18px;width:18px;left:3px;top:3px;background:#fff;border-radius:50%;transition:.2s}
   input:checked+.slider{background:#0a7c85}
   input:checked+.slider:before{transform:translateX(20px)}
+  .seg{border:1px solid #d1d5db;border-radius:10px;padding:.5rem .75rem;font-size:13px;font-weight:600;cursor:pointer;color:#374151}
+  .seg.on{background:#0a7c85;color:#fff;border-color:#0a7c85}
 </style>
 </head>
 <body class="bg-brand-page text-brand-textPrimary">
@@ -59,7 +61,7 @@ tailwind.config = { theme: { extend: {
   <div class="flex min-w-0 flex-1 flex-col overflow-hidden">
     <!-- Real admin header: bell only -->
     <header class="flex h-[56px] md:h-[80px] shrink-0 items-center gap-3 border-b border-[#e6e8e9] bg-[rgba(246,250,250,0.8)] px-3 md:px-8 backdrop-blur-[6px]">
-      <a href="index.html" class="flex items-center gap-1.5 text-[13px] font-medium text-brand-textMuted hover:text-brand-primary"><i data-lucide="arrow-left" class="h-4 w-4"></i> All Mockups</a>
+      <a href="index.html" class="flex items-center gap-1.5 text-[13px] font-medium text-brand-textMuted hover:text-brand-primary"><i data-lucide="arrow-left" class="h-4 w-4"></i> Flow Home</a>
       <div class="flex-1"></div>
       <button class="relative h-9 w-9 rounded-full hover:bg-black/5 flex items-center justify-center text-brand-textSecondary"><i data-lucide="bell" class="h-5 w-5"></i><span class="absolute top-1.5 right-2 h-2 w-2 rounded-full bg-brand-warning"></span></button>
     </header>
@@ -70,7 +72,7 @@ tailwind.config = { theme: { extend: {
       <div class="mb-5 flex flex-wrap items-center justify-between gap-3">
         <div>
           <h1 class="text-[22px] font-bold">Referral Program</h1>
-          <p class="text-[14px] text-brand-textMuted">Configure rewards, monitor referrals across the platform, and review flagged activity.</p>
+          <p class="text-[14px] text-brand-textMuted">Configure rewards, manage campaign codes, approve redemptions, and review flagged activity.</p>
         </div>
         <div class="card flex items-center gap-3 px-4 py-2.5">
           <span class="text-sm font-medium">Program Status</span>
@@ -84,7 +86,7 @@ tailwind.config = { theme: { extend: {
         <div class="card p-5"><p class="text-sm text-brand-textMuted">Total Referrals</p><p class="text-2xl font-bold mt-1">1,284</p><p class="text-xs text-brand-success mt-1">+8.2% this month</p></div>
         <div class="card p-5"><p class="text-sm text-brand-textMuted">Conversion Rate</p><p class="text-2xl font-bold mt-1">31.4%</p><p class="text-xs text-brand-textMuted mt-1">clicked → subscribed</p></div>
         <div class="card p-5"><p class="text-sm text-brand-textMuted">Revenue from Referrals</p><p class="text-2xl font-bold mt-1">₹6.4L</p><p class="text-xs text-brand-success mt-1">+12% this month</p></div>
-        <div class="card p-5"><p class="text-sm text-brand-textMuted">Flagged for Review</p><p class="text-2xl font-bold mt-1 text-brand-warning">5</p><p class="text-xs text-brand-textMuted mt-1">suspicious patterns</p></div>
+        <div class="card p-5"><p class="text-sm text-brand-textMuted">Flagged for Review</p><p class="text-2xl font-bold mt-1 text-brand-warning">3</p><p class="text-xs text-brand-textMuted mt-1">suspicious patterns</p></div>
       </section>
 
       <div class="grid lg:grid-cols-3 gap-6 mb-6">
@@ -94,15 +96,20 @@ tailwind.config = { theme: { extend: {
             <div>
               <label class="text-sm font-medium">Referrer reward (tokens)</label>
               <div class="mt-1.5 flex items-center gap-2"><input type="number" value="500" class="w-full rounded-[10px] border border-[#d1d5db] px-3 py-2 text-sm focus:ring-2 focus:ring-brand-primary outline-none"><span class="text-sm text-brand-textMuted whitespace-nowrap">🪙 / referral</span></div>
-              <p class="text-xs text-brand-textMuted mt-1">Credited only after referee subscribes.</p>
+              <p class="text-xs text-brand-textMuted mt-1">Credited only after referee subscribes. Reward is tokens (no cash).</p>
             </div>
             <div>
               <label class="text-sm font-medium">Referee first-purchase discount</label>
-              <div class="mt-1.5 flex items-center gap-2"><input type="number" value="15" class="w-full rounded-[10px] border border-[#d1d5db] px-3 py-2 text-sm focus:ring-2 focus:ring-brand-primary outline-none"><select class="rounded-[10px] border border-[#d1d5db] px-2 py-2 text-sm bg-white"><option>%</option><option>₹</option></select></div>
-              <p class="text-xs text-brand-textMuted mt-1">Auto-applied at checkout, first purchase only.</p>
+              <div class="mt-1.5 flex items-center gap-2"><input type="number" value="15" class="w-full rounded-[10px] border border-[#d1d5db] px-3 py-2 text-sm focus:ring-2 focus:ring-brand-primary outline-none"><select class="rounded-[10px] border border-[#d1d5db] px-2 py-2 text-sm bg-white"><option>%</option><option>₹ flat</option></select></div>
+              <p class="text-xs text-brand-textMuted mt-1">Admin chooses % or flat. Auto-applied at checkout, first purchase only.</p>
+            </div>
+            <div>
+              <label class="text-sm font-medium">Token → discount conversion</label>
+              <div class="mt-1.5 flex items-center gap-2"><input type="number" value="1000" class="w-24 rounded-[10px] border border-[#d1d5db] px-3 py-2 text-sm"><span class="text-sm text-brand-textMuted">tokens =</span><span class="text-sm text-brand-textMuted">₹</span><input type="number" value="100" class="w-20 rounded-[10px] border border-[#d1d5db] px-3 py-2 text-sm"></div>
+              <p class="text-xs text-brand-textMuted mt-1">Used when students redeem tokens for a renewal discount.</p>
             </div>
             <div class="flex items-center justify-between"><div><p class="text-sm font-medium">Attribution window</p><p class="text-xs text-brand-textMuted">Days a click stays valid</p></div><input type="number" value="30" class="w-20 rounded-[10px] border border-[#d1d5db] px-3 py-2 text-sm text-right"></div>
-            <button class="btn-brand w-full rounded-[12px] py-2.5 text-sm font-semibold">Save Configuration</button>
+            <button onclick="toast('Configuration saved')" class="btn-brand w-full rounded-[12px] py-2.5 text-sm font-semibold">Save Configuration</button>
           </div>
         </section>
 
@@ -112,6 +119,32 @@ tailwind.config = { theme: { extend: {
         </section>
       </div>
 
+      <!-- Campaign Codes (hybrid model) -->
+      <section id="campaigns" class="card overflow-hidden mb-6">
+        <div class="border-b border-[rgba(189,201,202,0.4)] px-6 py-4 flex flex-wrap items-center justify-between gap-2">
+          <div><h2 class="text-lg font-semibold">Campaign Codes</h2><p class="text-sm text-brand-textMuted">Admin-created codes alongside personal student codes. No cap — multiple can run at once.</p></div>
+          <button onclick="openCamp()" class="btn-brand rounded-[12px] px-4 py-2 text-sm font-semibold flex items-center gap-1.5"><i data-lucide="plus" class="h-4 w-4"></i>Create Campaign Code</button>
+        </div>
+        <div class="overflow-x-auto">
+          <table class="w-full text-sm">
+            <thead class="bg-brand-page text-brand-textMuted text-left"><tr><th class="px-6 py-3 font-medium">Code</th><th class="px-6 py-3 font-medium">Discount</th><th class="px-6 py-3 font-medium">Validity</th><th class="px-6 py-3 font-medium">Usage limit</th><th class="px-6 py-3 font-medium">Packages</th><th class="px-6 py-3 font-medium">Status</th></tr></thead>
+            <tbody id="campTable" class="divide-y divide-[#eef2f2]"></tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- Redemption Requests -->
+      <section id="redemptions" class="card overflow-hidden mb-6">
+        <div class="border-b border-[rgba(189,201,202,0.4)] px-6 py-4 flex flex-wrap items-center justify-between gap-2"><div><h2 class="text-lg font-semibold">Redemption Requests</h2><p class="text-sm text-brand-textMuted">Tokens are deducted only after you approve.</p></div><span class="text-sm font-semibold text-brand-warning" id="redCount">2 pending</span></div>
+        <div class="overflow-x-auto">
+          <table class="w-full text-sm">
+            <thead class="bg-brand-page text-brand-textMuted text-left"><tr><th class="px-6 py-3 font-medium">Student</th><th class="px-6 py-3 font-medium">Tokens</th><th class="px-6 py-3 font-medium">Discount</th><th class="px-6 py-3 font-medium">Requested</th><th class="px-6 py-3 font-medium text-right">Action</th></tr></thead>
+            <tbody id="redTable" class="divide-y divide-[#eef2f2]"></tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- Flagged Referrals (spec-only reasons) -->
       <section class="card overflow-hidden">
         <div class="border-b border-[rgba(189,201,202,0.4)] px-6 py-4 flex flex-wrap items-center justify-between gap-2"><h2 class="text-lg font-semibold">Flagged Referrals — Needs Review</h2><span class="text-sm text-brand-textMuted">Approve or reject suspicious patterns</span></div>
         <div class="overflow-x-auto">
@@ -127,16 +160,118 @@ tailwind.config = { theme: { extend: {
   </div>
 </div>
 
+<!-- Create campaign code modal -->
+<div id="campModal" class="fixed inset-0 z-50 hidden items-center justify-center bg-black/50 p-4">
+  <div class="w-full max-w-lg rounded-[16px] bg-white p-6 shadow-xl max-h-[90vh] overflow-y-auto">
+    <div class="flex items-center justify-between mb-4">
+      <h3 class="text-lg font-bold flex items-center gap-2"><i data-lucide="megaphone" class="h-5 w-5 text-brand-primary"></i>Create Campaign Code</h3>
+      <button onclick="closeCamp()" class="h-8 w-8 rounded-full hover:bg-black/5 flex items-center justify-center text-brand-textMuted"><i data-lucide="x" class="h-4 w-4"></i></button>
+    </div>
+    <div class="space-y-4">
+      <div>
+        <label class="text-sm font-medium">Code</label>
+        <input id="cCode" value="NEET2027" class="mt-1.5 w-full rounded-[10px] border border-[#d1d5db] px-3 py-2 text-sm uppercase tracking-wider focus:ring-2 focus:ring-brand-primary outline-none">
+      </div>
+      <div>
+        <label class="text-sm font-medium">Discount</label>
+        <div class="mt-1.5 flex items-center gap-2">
+          <input id="cVal" type="number" value="20" class="w-full rounded-[10px] border border-[#d1d5db] px-3 py-2 text-sm">
+          <select id="cType" class="rounded-[10px] border border-[#d1d5db] px-2 py-2 text-sm bg-white"><option>%</option><option>₹ flat</option></select>
+        </div>
+      </div>
+      <div class="grid grid-cols-2 gap-3">
+        <div><label class="text-sm font-medium">Start date</label><input id="cStart" type="date" value="2026-07-01" class="mt-1.5 w-full rounded-[10px] border border-[#d1d5db] px-3 py-2 text-sm"></div>
+        <div><label class="text-sm font-medium">End date</label><input id="cEnd" type="date" value="2026-08-31" class="mt-1.5 w-full rounded-[10px] border border-[#d1d5db] px-3 py-2 text-sm"></div>
+      </div>
+      <div>
+        <label class="text-sm font-medium">Usage limit</label>
+        <div class="mt-1.5 flex flex-wrap gap-2">
+          <span class="seg" data-limit="One-time use" onclick="pickLimit(this)">One-time use</span>
+          <span class="seg on" data-limit="Fixed: 500 uses" onclick="pickLimit(this)">Fixed number</span>
+          <span class="seg" data-limit="Unlimited" onclick="pickLimit(this)">Unlimited</span>
+        </div>
+        <input id="cFixed" type="number" value="500" class="mt-2 w-32 rounded-[10px] border border-[#d1d5db] px-3 py-2 text-sm" placeholder="No. of uses">
+      </div>
+      <div>
+        <label class="text-sm font-medium">Applies to packages</label>
+        <div class="mt-1.5 space-y-1.5 text-sm">
+          <label class="flex items-center gap-2"><input type="checkbox" class="pkg accent-[#0a7c85]" value="All" checked onchange="togglePkg(this)">All packages</label>
+          <label class="flex items-center gap-2"><input type="checkbox" class="pkg accent-[#0a7c85]" value="Standard">Standard Plan</label>
+          <label class="flex items-center gap-2"><input type="checkbox" class="pkg accent-[#0a7c85]" value="Advanced">Advanced Plan</label>
+          <label class="flex items-center gap-2"><input type="checkbox" class="pkg accent-[#0a7c85]" value="Crash Course">Crash Course</label>
+        </div>
+      </div>
+      <button onclick="saveCamp()" class="btn-brand w-full rounded-[12px] py-3 text-sm font-semibold">Create Code</button>
+    </div>
+  </div>
+</div>
+
 <div id="toast" class="fixed bottom-6 left-1/2 -translate-x-1/2 bg-brand-textPrimary text-white text-sm px-4 py-2 rounded-lg shadow-lg hidden">Done</div>
 
 <script>
+  // Top referrers
   const top=[{name:"Priya Sharma",refs:14,revenue:"₹42,000"},{name:"Arjun Mehta",refs:11,revenue:"₹33,000"},{name:"Sana Kapoor",refs:9,revenue:"₹27,000"},{name:"Dev Patel",refs:7,revenue:"₹21,000"}];
   const medal=["bg-[#fff3cd] text-[#b8860b]","bg-gray-100 text-brand-textSecondary","bg-[#fdeae6] text-brand-warning","bg-brand-subtle text-brand-primary"];
   document.getElementById("topReferrers").innerHTML=top.map((t,i)=>`<div class="flex items-center gap-3 rounded-[12px] border border-[#eef2f2] px-4 py-3"><span class="h-8 w-8 rounded-full flex items-center justify-center text-sm font-bold ${medal[i]}">${i+1}</span><span class="h-8 w-8 rounded-full bg-brand-primary text-white text-xs font-bold flex items-center justify-center">${t.name.split(" ").map(w=>w[0]).join("")}</span><div class="flex-1 min-w-0"><p class="font-medium truncate">${t.name}</p><p class="text-xs text-brand-textMuted">${t.refs} successful referrals</p></div><span class="text-sm font-semibold text-brand-success">${t.revenue}</span></div>`).join("");
-  const flags=[{referrer:"Rohit K.",referee:"rohit.k2@gmail.com",reason:"Same device as referrer",date:"16 Jun 2026"},{referrer:"Neha S.",referee:"test_account_9@x.com",reason:"5 sign-ups in 10 min",date:"15 Jun 2026"},{referrer:"Amit V.",referee:"amit.alt@gmail.com",reason:"Matching phone number",date:"14 Jun 2026"}];
-  document.getElementById("flagTable").innerHTML=flags.map((f,i)=>`<tr class="row" id="flag${i}"><td class="px-6 py-3 font-medium">${f.referrer}</td><td class="px-6 py-3 text-brand-textMuted">${f.referee}</td><td class="px-6 py-3"><span class="px-2.5 py-1 rounded-full text-xs font-medium bg-brand-warningBg text-brand-warning">${f.reason}</span></td><td class="px-6 py-3 text-brand-textMuted">${f.date}</td><td class="px-6 py-3 text-right whitespace-nowrap"><button onclick="resolve(${i},'approved')" class="px-3 py-1.5 rounded-[10px] text-xs font-semibold bg-brand-successBg text-brand-success hover:opacity-80">Approve</button><button onclick="resolve(${i},'rejected')" class="px-3 py-1.5 rounded-[10px] text-xs font-semibold bg-brand-warningBg text-brand-warning hover:opacity-80 ml-1">Reject</button></td></tr>`).join("");
+
+  // Campaign codes
+  let camps=[
+    {code:"WELCOME15", disc:"15%", val:"01 Jun – 30 Jun 2026", limit:"Unlimited", pkg:"All packages", status:"Active"},
+    {code:"CRASH500", disc:"₹500 flat", val:"15 Jun – 15 Jul 2026", limit:"Fixed: 1,000 uses", pkg:"Crash Course", status:"Active"},
+    {code:"EARLYBIRD", disc:"20%", val:"01 May – 31 May 2026", limit:"One-time use", pkg:"Advanced Plan", status:"Expired"},
+  ];
+  function renderCamps(){
+    const sb={Active:"bg-brand-successBg text-brand-success",Expired:"bg-gray-100 text-brand-textMuted",Scheduled:"bg-brand-infoBg text-brand-info"};
+    document.getElementById("campTable").innerHTML=camps.map(c=>`<tr class="row"><td class="px-6 py-3 font-semibold tracking-wider text-brand-primary">${c.code}</td><td class="px-6 py-3">${c.disc}</td><td class="px-6 py-3 text-brand-textMuted">${c.val}</td><td class="px-6 py-3 text-brand-textMuted">${c.limit}</td><td class="px-6 py-3 text-brand-textMuted">${c.pkg}</td><td class="px-6 py-3"><span class="px-2.5 py-1 rounded-full text-xs font-medium ${sb[c.status]}">${c.status}</span></td></tr>`).join("");
+  }
+  renderCamps();
+
+  let limitChoice="Fixed: 500 uses";
+  function pickLimit(el){ document.querySelectorAll('.seg').forEach(s=>s.classList.remove('on')); el.classList.add('on'); limitChoice=el.dataset.limit; document.getElementById('cFixed').style.display = limitChoice.startsWith('Fixed')?'block':'none'; }
+  function togglePkg(el){ if(el.value==='All'&&el.checked){ document.querySelectorAll('.pkg').forEach(p=>{if(p.value!=='All')p.checked=false;}); } else if(el.value!=='All'&&el.checked){ document.querySelector('.pkg[value=All]').checked=false; } }
+  function openCamp(){ const m=document.getElementById("campModal"); m.classList.remove("hidden"); m.classList.add("flex"); lucide.createIcons(); }
+  function closeCamp(){ const m=document.getElementById("campModal"); m.classList.add("hidden"); m.classList.remove("flex"); }
+  function saveCamp(){
+    const code=document.getElementById('cCode').value.toUpperCase()||"CODE";
+    const type=document.getElementById('cType').value;
+    const val=document.getElementById('cVal').value;
+    const disc=type==='%'?val+'%':'₹'+val+' flat';
+    const fmt=d=>new Date(d).toLocaleDateString('en-GB',{day:'2-digit',month:'short',year:'numeric'});
+    const val_=fmt(document.getElementById('cStart').value)+' – '+fmt(document.getElementById('cEnd').value);
+    let limit=limitChoice; if(limit.startsWith('Fixed')) limit='Fixed: '+(+document.getElementById('cFixed').value).toLocaleString()+' uses';
+    const pkgs=[...document.querySelectorAll('.pkg:checked')].map(p=>p.value); const pkg=pkgs.includes('All')||!pkgs.length?'All packages':pkgs.join(', ');
+    camps.unshift({code,disc,val:val_,limit,pkg,status:"Active"});
+    renderCamps(); closeCamp(); toast("Campaign code "+code+" created");
+  }
+
+  // Redemption requests
+  let reds=[
+    {id:0, name:"Priya Sharma", tokens:"1,000", disc:"₹100", date:"20 Jun 2026"},
+    {id:1, name:"Arjun Mehta",  tokens:"2,000", disc:"₹200", date:"19 Jun 2026"},
+  ];
+  function renderReds(){
+    document.getElementById("redTable").innerHTML=reds.map(r=>`<tr class="row" id="red${r.id}"><td class="px-6 py-3"><div class="flex items-center gap-3"><span class="w-8 h-8 rounded-full bg-brand-primary text-white text-xs font-bold flex items-center justify-center">${r.name.split(" ").map(w=>w[0]).join("")}</span><span class="font-medium">${r.name}</span></div></td><td class="px-6 py-3">${r.tokens} 🪙</td><td class="px-6 py-3 font-medium text-brand-success">${r.disc}</td><td class="px-6 py-3 text-brand-textMuted">${r.date}</td><td class="px-6 py-3 text-right whitespace-nowrap"><button onclick="resolveRed(${r.id},'approved')" class="px-3 py-1.5 rounded-[10px] text-xs font-semibold bg-brand-successBg text-brand-success hover:opacity-80">Approve</button><button onclick="resolveRed(${r.id},'rejected')" class="px-3 py-1.5 rounded-[10px] text-xs font-semibold bg-brand-warningBg text-brand-warning hover:opacity-80 ml-1">Reject</button></td></tr>`).join("");
+  }
+  renderReds();
+  let pending=2;
+  function resolveRed(id,a){
+    const r=document.getElementById("red"+id); const c=a==="approved"?"text-brand-success":"text-brand-warning";
+    const note=a==="approved"?"approved ✓ — tokens deducted":"rejected ✕ — tokens returned";
+    r.querySelector("td:last-child").innerHTML=`<span class="text-xs font-semibold ${c}">${note}</span>`;
+    pending--; document.getElementById("redCount").textContent=pending+" pending";
+    toast("Redemption "+a);
+  }
+
+  // Flagged referrals — spec reasons only (RF-16 same email/phone/device, RF-17 multiple accounts)
+  const flags=[
+    {referrer:"Rohit K.", referee:"rohit.k2@gmail.com", reason:"Same device as referrer", date:"16 Jun 2026"},
+    {referrer:"Amit V.",  referee:"amit.alt@gmail.com", reason:"Matching phone number",    date:"14 Jun 2026"},
+    {referrer:"Neha S.",  referee:"neha.s+1@x.com",     reason:"Multiple accounts detected", date:"13 Jun 2026"},
+  ];
+  document.getElementById("flagTable").innerHTML=flags.map((f,i)=>`<tr class="row" id="flag${i}"><td class="px-6 py-3 font-medium">${f.referrer}</td><td class="px-6 py-3 text-brand-textMuted">${f.referee}</td><td class="px-6 py-3"><span class="px-2.5 py-1 rounded-full text-xs font-medium bg-brand-warningBg text-brand-warning">${f.reason}</span></td><td class="px-6 py-3 text-brand-textMuted">${f.date}</td><td class="px-6 py-3 text-right whitespace-nowrap"><button onclick="resolveFlag(${i},'approved')" class="px-3 py-1.5 rounded-[10px] text-xs font-semibold bg-brand-successBg text-brand-success hover:opacity-80">Approve</button><button onclick="resolveFlag(${i},'rejected')" class="px-3 py-1.5 rounded-[10px] text-xs font-semibold bg-brand-warningBg text-brand-warning hover:opacity-80 ml-1">Reject</button></td></tr>`).join("");
+  function resolveFlag(i,a){const r=document.getElementById("flag"+i);const c=a==="approved"?"text-brand-success":"text-brand-warning";r.querySelector("td:last-child").innerHTML=`<span class="text-xs font-semibold ${c} capitalize">${a} ✓</span>`;toast("Referral "+a);}
+
   let tt; function toast(m){const t=document.getElementById("toast");t.textContent=m;t.classList.remove("hidden");clearTimeout(tt);tt=setTimeout(()=>t.classList.add("hidden"),1600);}
-  function resolve(i,a){const r=document.getElementById("flag"+i);const c=a==="approved"?"text-brand-success":"text-brand-warning";r.querySelector("td:last-child").innerHTML=`<span class="text-xs font-semibold ${c} capitalize">${a} ✓</span>`;toast("Referral "+a);}
   lucide.createIcons();
 </script>
 </body>
