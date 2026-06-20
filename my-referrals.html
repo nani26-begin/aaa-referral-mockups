@@ -164,7 +164,7 @@ tailwind.config = { theme: { extend: {
       </section>
 
       <!-- Rewards summary -->
-      <section class="grid md:grid-cols-3 gap-4 mb-6">
+      <section class="grid md:grid-cols-2 gap-4 mb-6">
         <div class="bg-white rounded-2xl border border-[#e6e8e9] border-l-4 border-l-brand-success p-5">
           <p class="text-sm text-brand-textMuted">Total Rewards Earned</p>
           <p class="text-2xl font-bold mt-1">2,000 <span class="text-base font-normal text-brand-textMuted">tokens</span></p>
@@ -174,11 +174,6 @@ tailwind.config = { theme: { extend: {
           <p class="text-sm text-brand-textMuted">Pending Rewards</p>
           <p class="text-2xl font-bold mt-1">1,500 <span class="text-base font-normal text-brand-textMuted">tokens</span></p>
           <p class="text-xs text-brand-textMuted mt-1">3 friends registered, waiting to subscribe</p>
-        </div>
-        <div class="bg-white rounded-2xl border border-[#e6e8e9] border-l-4 border-l-brand-info p-5">
-          <p class="text-sm text-brand-textMuted">Conversion Rate</p>
-          <p class="text-2xl font-bold mt-1">33% <span class="text-base font-normal text-brand-textMuted">subscribed</span></p>
-          <p class="text-xs text-brand-textMuted mt-1">4 of 12 referred friends subscribed</p>
         </div>
       </section>
 
@@ -203,18 +198,8 @@ tailwind.config = { theme: { extend: {
         </div>
       </section>
 
-      <!-- How it works + tips -->
-      <section class="grid md:grid-cols-2 gap-6">
-        <div class="bg-white rounded-2xl border border-[#e6e8e9] p-6">
-          <h2 class="text-lg font-semibold mb-4">How It Works</h2>
-          <ol class="space-y-4">
-            <li class="flex gap-3"><span class="w-7 h-7 shrink-0 bg-brand-subtle text-brand-primary rounded-full flex items-center justify-center text-sm font-bold">1</span><div><p class="font-medium">Share your link</p><p class="text-sm text-brand-textMuted">Send your unique referral link to friends.</p></div></li>
-            <li class="flex gap-3"><span class="w-7 h-7 shrink-0 bg-brand-subtle text-brand-primary rounded-full flex items-center justify-center text-sm font-bold">2</span><div><p class="font-medium">They register &amp; get a discount</p><p class="text-sm text-brand-textMuted">New friends get a discount auto-applied on their first purchase.</p></div></li>
-            <li class="flex gap-3"><span class="w-7 h-7 shrink-0 bg-brand-subtle text-brand-primary rounded-full flex items-center justify-center text-sm font-bold">3</span><div><p class="font-medium">You earn tokens</p><p class="text-sm text-brand-textMuted">Once they subscribe to a paid plan you get 500 tokens. No limit, never expires.</p></div></li>
-            <li class="flex gap-3"><span class="w-7 h-7 shrink-0 bg-brand-subtle text-brand-primary rounded-full flex items-center justify-center text-sm font-bold">4</span><div><p class="font-medium">Redeem for a renewal discount</p><p class="text-sm text-brand-textMuted">Convert tokens to a discount on your next renewal (admin-approved).</p></div></li>
-          </ol>
-          <a href="referee-checkout.html" class="mt-4 inline-flex items-center gap-1.5 text-sm font-semibold text-brand-primary hover:underline"><i data-lucide="eye" class="h-4 w-4"></i>Preview Checkout</a>
-        </div>
+      <!-- Tips (RF-42) -->
+      <section>
         <div class="bg-brand-subtle border border-brand-secondary rounded-2xl p-6">
           <h2 class="text-lg font-semibold text-brand-primaryDark mb-4 flex items-center gap-2"><i data-lucide="lightbulb" class="h-5 w-5"></i>Tips for Successful Referrals</h2>
           <ul class="space-y-3 text-sm text-[#0b5a61]">
