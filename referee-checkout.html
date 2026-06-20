@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Checkout — Referral Discount · AAA Lakshya</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="https://unpkg.com/lucide@latest"></script>
+<script>
+tailwind.config = { theme: { extend: {
+  colors: { brand: {
+    primary:'#0a7c85', primaryDark:'#075e66', primaryHover:'#0d8f99', heroTeal:'#1a9ea8',
+    secondary:'#a8dce0', subtle:'#e0f5f6', page:'#f5f9f9',
+    success:'#2ba080', successBg:'#d6f0e8', warning:'#f4735a', warningBg:'#fdeae6',
+    info:'#3b8fd4', infoBg:'#e0eefa',
+    textPrimary:'#111827', textSecondary:'#374151', textMuted:'#6b7280', border:'#d1d5db' } },
+  fontFamily: { sans:['Geist','ui-sans-serif','system-ui','sans-serif'] } } } }
+</script>
+<style>
+  body{font-family:'Geist',ui-sans-serif,system-ui,sans-serif}
+  .btn-brand{background-image:linear-gradient(174deg,#3bafa8,#2c9d96);box-shadow:0 2px 12px rgba(59,175,168,.3);color:#fff}
+  .btn-brand:hover{background-image:linear-gradient(174deg,#35a39c,#278f89)}
+  .plan{cursor:pointer;transition:.15s}
+  .plan.sel{border-color:#0a7c85;box-shadow:0 0 0 2px #0a7c85 inset}
+</style>
+</head>
+<body class="bg-brand-page text-brand-textPrimary min-h-screen flex flex-col">
+
+  <!-- Minimal checkout top bar -->
+  <header class="flex h-[64px] shrink-0 items-center border-b border-[#e6e8e9] bg-white px-4 md:px-8">
+    <div class="flex items-center gap-2">
+      <div class="h-9 w-9 rounded-full bg-brand-primary flex items-center justify-center"><span class="text-white font-extrabold text-xs">AAA</span></div>
+      <span class="text-[14px] font-bold leading-[15px] text-brand-primary">ARJUNAA ACADEMY<br><span class="font-semibold text-brand-textMuted text-[11px]">FOR ACHIEVERS</span></span>
+    </div>
+    <a href="index.html" class="ml-auto flex items-center gap-1.5 text-[13px] font-medium text-brand-textMuted hover:text-brand-primary"><i data-lucide="arrow-left" class="h-4 w-4"></i> All Mockups</a>
+  </header>
+
+  <main class="flex-1 mx-auto w-full max-w-5xl px-4 sm:px-6 py-8">
+    <h1 class="text-[22px] font-bold">Complete Your Subscription</h1>
+    <p class="text-[14px] text-brand-textMuted mb-5">You're almost there, Aman. Pick a plan to start learning.</p>
+
+    <!-- Referral banner (RF-32) -->
+    <div class="mb-6 flex items-center gap-3 rounded-2xl border border-brand-secondary bg-brand-subtle px-5 py-4">
+      <span class="h-10 w-10 shrink-0 rounded-full bg-brand-primary text-white flex items-center justify-center"><i data-lucide="gift" class="h-5 w-5"></i></span>
+      <div class="flex-1">
+        <p class="text-sm font-semibold text-brand-primaryDark">Referred by Priya Sharma</p>
+        <p class="text-[13px] text-[#0b5a61]">Your 15% first-purchase discount has been applied automatically.</p>
+      </div>
+      <span class="rounded-full bg-white px-3 py-1 text-xs font-semibold text-brand-primary">Code: AAA7K2P</span>
+    </div>
+
+    <div class="grid lg:grid-cols-[1fr_360px] gap-6 items-start">
+      <!-- Plans -->
+      <section class="space-y-4">
+        <div onclick="selectPlan('standard')" id="plan-standard" class="plan rounded-2xl border-2 border-[#e6e8e9] bg-white p-5">
+          <div class="flex items-start justify-between">
+            <div>
+              <p class="font-semibold text-lg">Standard</p>
+              <p class="text-sm text-brand-textMuted">All core courses, tests &amp; doubt support.</p>
+            </div>
+            <div class="text-right"><p class="text-xl font-bold">₹4,999<span class="text-sm font-normal text-brand-textMuted">/yr</span></p></div>
+          </div>
+        </div>
+        <div onclick="selectPlan('advanced')" id="plan-advanced" class="plan sel rounded-2xl border-2 border-brand-primary bg-white p-5 relative">
+          <span class="absolute -top-2.5 left-5 rounded-full bg-brand-primary px-2.5 py-0.5 text-[11px] font-semibold text-white">Most Popular</span>
+          <div class="flex items-start justify-between">
+            <div>
+              <p class="font-semibold text-lg">Advanced</p>
+              <p class="text-sm text-brand-textMuted">Everything in Standard + live classes &amp; mentorship.</p>
+            </div>
+            <div class="text-right"><p class="text-xl font-bold">₹7,999<span class="text-sm font-normal text-brand-textMuted">/yr</span></p></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Order summary -->
+      <aside class="rounded-2xl border border-[#e6e8e9] bg-white p-6">
+        <h2 class="font-semibold mb-4">Order Summary</h2>
+        <div class="space-y-2.5 text-sm">
+          <div class="flex justify-between"><span class="text-brand-textMuted">Plan</span><span id="sumPlan" class="font-medium">Advanced (yearly)</span></div>
+          <div class="flex justify-between"><span class="text-brand-textMuted">Subtotal</span><span id="sumSub" class="font-medium">₹7,999</span></div>
+          <div class="flex justify-between text-brand-success">
+            <span class="flex items-center gap-1"><i data-lucide="tag" class="h-3.5 w-3.5"></i>Referral discount (15%)</span>
+            <span id="sumDisc" class="font-medium">−₹1,200</span>
+          </div>
+          <div class="border-t border-[#eef2f2] my-2"></div>
+          <div class="flex justify-between text-base"><span class="font-semibold">Total</span><span id="sumTotal" class="font-bold text-brand-primary">₹6,799</span></div>
+        </div>
+        <div class="mt-3 rounded-lg bg-brand-successBg px-3 py-2 text-xs text-brand-success flex items-center gap-1.5">
+          <i data-lucide="badge-check" class="h-4 w-4"></i><span id="savings">You save ₹1,200 with your referral.</span>
+        </div>
+        <button class="btn-brand w-full rounded-lg py-3 text-sm font-semibold mt-4">Pay <span id="payBtn">₹6,799</span> &amp; Subscribe</button>
+        <p class="text-[11px] text-brand-textMuted text-center mt-3">Discount valid for first purchase only · cannot be combined with other offers.</p>
+      </aside>
+    </div>
+
+    <p class="text-center text-xs text-brand-textMuted mt-10">Referral System mockup · P3-03 · Referee checkout · for review only</p>
+  </main>
+
+<script>
+  const PLANS = { standard:{label:"Standard (yearly)", price:4999}, advanced:{label:"Advanced (yearly)", price:7999} };
+  const RATE = 0.15;
+  const inr = n => "₹"+n.toLocaleString("en-IN");
+  function selectPlan(key){
+    document.querySelectorAll(".plan").forEach(p=>{p.classList.remove("sel");p.classList.remove("border-brand-primary");p.classList.add("border-[#e6e8e9]");});
+    const el=document.getElementById("plan-"+key); el.classList.add("sel","border-brand-primary"); el.classList.remove("border-[#e6e8e9]");
+    const p=PLANS[key]; const disc=Math.round(p.price*RATE); const total=p.price-disc;
+    document.getElementById("sumPlan").textContent=p.label;
+    document.getElementById("sumSub").textContent=inr(p.price);
+    document.getElementById("sumDisc").textContent="−"+inr(disc);
+    document.getElementById("sumTotal").textContent=inr(total);
+    document.getElementById("payBtn").textContent=inr(total);
+    document.getElementById("savings").textContent="You save "+inr(disc)+" with your referral.";
+  }
+  selectPlan('advanced');
+  lucide.createIcons();
+</script>
+</body>
+</html>

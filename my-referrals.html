@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>My Referrals — AAA Lakshya</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="https://unpkg.com/lucide@latest"></script>
+<script>
+tailwind.config = { theme: { extend: {
+  colors: { brand: {
+    primary:'#0a7c85', primaryDark:'#075e66', primaryHover:'#0d8f99', heroTeal:'#1a9ea8',
+    secondary:'#a8dce0', subtle:'#e0f5f6', page:'#f5f9f9',
+    success:'#2ba080', successBg:'#d6f0e8', warning:'#f4735a', warningBg:'#fdeae6',
+    info:'#3b8fd4', infoBg:'#e0eefa',
+    textPrimary:'#111827', textSecondary:'#374151', textMuted:'#6b7280', border:'#d1d5db' } },
+  fontFamily: { sans:['Geist','ui-sans-serif','system-ui','sans-serif'] } } } }
+</script>
+<style>
+  body{font-family:'Geist',ui-sans-serif,system-ui,sans-serif}
+  .btn-brand{background-image:linear-gradient(174deg,#3bafa8,#2c9d96);box-shadow:0 2px 12px rgba(59,175,168,.3);color:#fff}
+  .btn-brand:hover{background-image:linear-gradient(174deg,#35a39c,#278f89)}
+  .stat-card{transition:transform .18s ease}
+  .stat-card:hover{transform:translateY(-2px)}
+  tr.ref-row:hover{background:#f5f9f9}
+  @keyframes pop{from{transform:translate(-50%,6px);opacity:0}to{transform:translate(-50%,0);opacity:1}}
+  #toast{animation:pop .15s ease}
+  .nav-item{display:flex;align-items:center;gap:.5rem;padding:.625rem .75rem .625rem .5rem;font-size:13px;font-weight:500;border-radius:.75rem;color:rgba(255,255,255,.7);border-left:4px solid transparent}
+  .nav-item:hover{background:rgba(255,255,255,.05);color:#fff}
+  .nav-item.active{background:#fff;color:#0a7c85;box-shadow:0 1px 2px rgba(0,0,0,.06);padding-left:.75rem;border-left-color:transparent}
+</style>
+</head>
+<body class="bg-brand-page text-brand-textPrimary">
+<div class="flex h-screen overflow-hidden">
+
+  <!-- ── Sidebar (real app chrome) ─────────────────────────── -->
+  <aside class="hidden md:flex w-[210px] shrink-0 flex-col bg-brand-primary text-white border-r border-[#115e59]">
+    <div class="flex items-center gap-2 px-3 py-4">
+      <div class="h-10 w-10 shrink-0 rounded-full bg-white flex items-center justify-center">
+        <span class="text-brand-primary font-extrabold text-sm">AAA</span>
+      </div>
+      <span class="text-[14px] font-bold leading-[16px]">ARJUNAA<br>ACADEMY FOR<br>ACHIEVERS</span>
+    </div>
+    <nav class="space-y-1 px-2 pt-2">
+      <a class="nav-item"><i data-lucide="layout-dashboard" class="h-4 w-4"></i>My Dashboard</a>
+      <a class="nav-item"><i data-lucide="book-open" class="h-4 w-4"></i>My Learning</a>
+      <a class="nav-item"><i data-lucide="video" class="h-4 w-4"></i>My Classes</a>
+      <a class="nav-item"><i data-lucide="clipboard-list" class="h-4 w-4"></i>My Tests</a>
+      <a class="nav-item"><i data-lucide="notebook-pen" class="h-4 w-4"></i>My Notes</a>
+      <a class="nav-item active"><i data-lucide="gift" class="h-4 w-4"></i>Refer &amp; Earn</a>
+    </nav>
+    <div class="flex-1"></div>
+    <div class="border-t border-white/15 px-3 py-2.5 flex items-center gap-2.5">
+      <div class="h-8 w-8 rounded-full bg-white flex items-center justify-center text-brand-primary font-bold text-xs">PS</div>
+      <div class="min-w-0 flex-1"><p class="truncate text-[13px] font-semibold text-white">Priya Sharma</p></div>
+      <i data-lucide="chevron-up" class="h-4 w-4 text-white/50"></i>
+    </div>
+  </aside>
+
+  <!-- ── Main ──────────────────────────────────────────────── -->
+  <div class="flex min-w-0 flex-1 flex-col overflow-hidden">
+    <!-- Header -->
+    <header class="flex h-[64px] md:h-[80px] shrink-0 items-center border-b border-[#e6e8e9] bg-[rgba(246,250,250,0.85)] px-4 md:px-8 backdrop-blur">
+      <a href="index.html" class="flex items-center gap-1.5 text-[13px] font-medium text-brand-textMuted hover:text-brand-primary">
+        <i data-lucide="arrow-left" class="h-4 w-4"></i> All Mockups
+      </a>
+      <div class="ml-auto flex items-center gap-2">
+        <span class="flex h-[32px] items-center rounded-full bg-brand-secondary px-4 text-[12px] md:text-[13px] font-semibold uppercase text-[#006d77]">Current Plan: Advanced</span>
+        <button class="relative h-9 w-9 rounded-full hover:bg-black/5 flex items-center justify-center text-brand-textSecondary">
+          <i data-lucide="bell" class="h-5 w-5"></i>
+          <span class="absolute top-1.5 right-2 h-2 w-2 rounded-full bg-brand-warning"></span>
+        </button>
+      </div>
+    </header>
+
+    <!-- Content -->
+    <main class="flex-1 overflow-y-auto px-4 sm:px-6 py-4 sm:py-6">
+      <!-- Breadcrumb -->
+      <nav class="mb-3 flex items-center gap-1.5 text-[12px] text-brand-textMuted">
+        <span>Home</span><i data-lucide="chevron-right" class="h-3.5 w-3.5"></i>
+        <span class="font-medium text-brand-textSecondary">Refer &amp; Earn</span>
+      </nav>
+
+      <div class="mb-5">
+        <h1 class="text-[22px] font-bold text-brand-textPrimary">My Referrals</h1>
+        <p class="text-[14px] text-brand-textMuted">Invite friends to AAA Lakshya. They get a discount on their first plan — you earn tokens when they subscribe.</p>
+      </div>
+
+      <!-- Referral code + link + share -->
+      <section class="rounded-2xl text-white p-6 mb-6" style="background-image:linear-gradient(135deg,#0a7c85,#1a9ea8)">
+        <div class="grid lg:grid-cols-2 gap-6 items-center">
+          <div>
+            <p class="text-white/80 text-[11px] uppercase tracking-wider mb-1.5">Your Referral Code</p>
+            <div class="flex items-center gap-3">
+              <span class="text-3xl font-extrabold tracking-[.2em] bg-white/15 px-4 py-2 rounded-xl">AAA7K2P</span>
+              <button onclick="copyText('AAA7K2P','Code copied!')" class="bg-white/20 hover:bg-white/30 px-3 py-2 rounded-xl text-sm flex items-center gap-1.5 transition"><i data-lucide="copy" class="h-4 w-4"></i>Copy</button>
+            </div>
+            <p class="text-white/70 text-[12px] mt-3 flex items-center gap-1.5"><i data-lucide="lock" class="h-3.5 w-3.5"></i>Your code is permanent — share it anytime.</p>
+          </div>
+          <div>
+            <p class="text-white/80 text-[11px] uppercase tracking-wider mb-1.5">Shareable Link</p>
+            <div class="flex items-center gap-2 bg-white/15 rounded-xl p-2">
+              <input id="refLink" readonly value="https://lakshya.aaa.com/refer/AAA7K2P" class="flex-1 bg-transparent text-white text-sm px-2 outline-none">
+              <button onclick="copyText(document.getElementById('refLink').value,'Link copied!')" class="bg-white text-brand-primary hover:bg-white/90 px-3 py-1.5 rounded-lg text-sm font-semibold flex items-center gap-1.5 whitespace-nowrap transition"><i data-lucide="link" class="h-4 w-4"></i>Copy Link</button>
+            </div>
+            <div class="flex gap-2 mt-3">
+              <button onclick="share('whatsapp')" class="flex-1 bg-[#25D366] hover:opacity-90 px-3 py-2 rounded-xl text-sm font-medium flex items-center justify-center gap-1.5 transition"><i data-lucide="message-circle" class="h-4 w-4"></i>WhatsApp</button>
+              <button onclick="share('sms')" class="flex-1 bg-white/20 hover:bg-white/30 px-3 py-2 rounded-xl text-sm font-medium flex items-center justify-center gap-1.5 transition"><i data-lucide="smartphone" class="h-4 w-4"></i>SMS</button>
+              <button onclick="share('email')" class="flex-1 bg-white/20 hover:bg-white/30 px-3 py-2 rounded-xl text-sm font-medium flex items-center justify-center gap-1.5 transition"><i data-lucide="mail" class="h-4 w-4"></i>Email</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Stats -->
+      <section class="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
+        <div class="stat-card bg-white rounded-2xl border border-[#e6e8e9] p-5">
+          <div class="flex items-center justify-between"><p class="text-3xl font-bold text-brand-textPrimary">12</p><span class="h-9 w-9 rounded-full bg-brand-subtle flex items-center justify-center text-brand-primary"><i data-lucide="eye" class="h-5 w-5"></i></span></div>
+          <p class="text-sm text-brand-textMuted mt-1">Total Referred</p>
+        </div>
+        <div class="stat-card bg-white rounded-2xl border border-[#e6e8e9] p-5">
+          <div class="flex items-center justify-between"><p class="text-3xl font-bold text-brand-info">7</p><span class="h-9 w-9 rounded-full bg-brand-infoBg flex items-center justify-center text-brand-info"><i data-lucide="user-plus" class="h-5 w-5"></i></span></div>
+          <p class="text-sm text-brand-textMuted mt-1">Registered</p>
+        </div>
+        <div class="stat-card bg-white rounded-2xl border border-[#e6e8e9] p-5">
+          <div class="flex items-center justify-between"><p class="text-3xl font-bold text-brand-success">4</p><span class="h-9 w-9 rounded-full bg-brand-successBg flex items-center justify-center text-brand-success"><i data-lucide="badge-check" class="h-5 w-5"></i></span></div>
+          <p class="text-sm text-brand-textMuted mt-1">Subscribed</p>
+        </div>
+        <div class="stat-card bg-white rounded-2xl border border-[#e6e8e9] p-5">
+          <div class="flex items-center justify-between"><p class="text-3xl font-bold text-[#b8860b]">2,000</p><span class="h-9 w-9 rounded-full bg-[#fff3cd] flex items-center justify-center text-[#b8860b]"><i data-lucide="coins" class="h-5 w-5"></i></span></div>
+          <p class="text-sm text-brand-textMuted mt-1">Tokens Earned</p>
+        </div>
+      </section>
+
+      <!-- Rewards summary -->
+      <section class="grid md:grid-cols-3 gap-4 mb-6">
+        <div class="bg-white rounded-2xl border border-[#e6e8e9] border-l-4 border-l-brand-success p-5">
+          <p class="text-sm text-brand-textMuted">Total Rewards Earned</p>
+          <p class="text-2xl font-bold mt-1">2,000 <span class="text-base font-normal text-brand-textMuted">tokens</span></p>
+          <p class="text-xs text-brand-textMuted mt-1">From 4 successful referrals · 500 tokens each</p>
+        </div>
+        <div class="bg-white rounded-2xl border border-[#e6e8e9] border-l-4 border-l-brand-warning p-5">
+          <p class="text-sm text-brand-textMuted">Pending Rewards</p>
+          <p class="text-2xl font-bold mt-1">1,500 <span class="text-base font-normal text-brand-textMuted">tokens</span></p>
+          <p class="text-xs text-brand-textMuted mt-1">3 friends registered, waiting to subscribe</p>
+        </div>
+        <div class="bg-white rounded-2xl border border-[#e6e8e9] border-l-4 border-l-brand-info p-5">
+          <p class="text-sm text-brand-textMuted">Conversion Rate</p>
+          <p class="text-2xl font-bold mt-1">33% <span class="text-base font-normal text-brand-textMuted">subscribed</span></p>
+          <p class="text-xs text-brand-textMuted mt-1">4 of 12 referred friends subscribed</p>
+        </div>
+      </section>
+
+      <!-- Referred friends table -->
+      <section class="bg-white rounded-2xl border border-[#e6e8e9] mb-6 overflow-hidden">
+        <div class="border-b border-[#e6e8e9] px-6 py-4 flex items-center justify-between">
+          <h2 class="text-lg font-semibold">Referred Friends</h2>
+          <span class="text-sm text-brand-textMuted">Reward credited only after a friend subscribes</span>
+        </div>
+        <div class="overflow-x-auto">
+          <table class="w-full text-sm">
+            <thead class="bg-brand-page text-brand-textMuted text-left">
+              <tr>
+                <th class="px-6 py-3 font-medium">Friend</th>
+                <th class="px-6 py-3 font-medium">Status</th>
+                <th class="px-6 py-3 font-medium">Date</th>
+                <th class="px-6 py-3 font-medium text-right">Reward</th>
+              </tr>
+            </thead>
+            <tbody id="refTable" class="divide-y divide-[#eef2f2]"></tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- How it works + tips -->
+      <section class="grid md:grid-cols-2 gap-6">
+        <div class="bg-white rounded-2xl border border-[#e6e8e9] p-6">
+          <h2 class="text-lg font-semibold mb-4">How It Works</h2>
+          <ol class="space-y-4">
+            <li class="flex gap-3"><span class="w-7 h-7 shrink-0 bg-brand-subtle text-brand-primary rounded-full flex items-center justify-center text-sm font-bold">1</span><div><p class="font-medium">Share your link</p><p class="text-sm text-brand-textMuted">Send your unique referral link to friends.</p></div></li>
+            <li class="flex gap-3"><span class="w-7 h-7 shrink-0 bg-brand-subtle text-brand-primary rounded-full flex items-center justify-center text-sm font-bold">2</span><div><p class="font-medium">They register &amp; get a discount</p><p class="text-sm text-brand-textMuted">New friends get a discount auto-applied on their first purchase.</p></div></li>
+            <li class="flex gap-3"><span class="w-7 h-7 shrink-0 bg-brand-subtle text-brand-primary rounded-full flex items-center justify-center text-sm font-bold">3</span><div><p class="font-medium">You earn tokens</p><p class="text-sm text-brand-textMuted">Once they subscribe to a paid plan you get 500 tokens. No limit, never expires.</p></div></li>
+          </ol>
+        </div>
+        <div class="bg-brand-subtle border border-brand-secondary rounded-2xl p-6">
+          <h2 class="text-lg font-semibold text-brand-primaryDark mb-4 flex items-center gap-2"><i data-lucide="lightbulb" class="h-5 w-5"></i>Tips for Successful Referrals</h2>
+          <ul class="space-y-3 text-sm text-[#0b5a61]">
+            <li class="flex gap-2"><i data-lucide="check" class="h-4 w-4 mt-0.5 text-brand-primary"></i>Share in your class WhatsApp groups before exam season.</li>
+            <li class="flex gap-2"><i data-lucide="check" class="h-4 w-4 mt-0.5 text-brand-primary"></i>Tell friends about the first-purchase discount — a real reason to join.</li>
+            <li class="flex gap-2"><i data-lucide="check" class="h-4 w-4 mt-0.5 text-brand-primary"></i>Follow up with friends who registered but haven't subscribed yet.</li>
+            <li class="flex gap-2"><i data-lucide="check" class="h-4 w-4 mt-0.5 text-brand-primary"></i>Personalise your message — mention how Lakshya helped you.</li>
+          </ul>
+        </div>
+      </section>
+
+      <p class="text-center text-xs text-brand-textMuted mt-8">Referral System mockup · P3-03 · AAA Lakshya · for review only</p>
+    </main>
+  </div>
+</div>
+
+<div id="toast" class="fixed bottom-6 left-1/2 -translate-x-1/2 bg-brand-textPrimary text-white text-sm px-4 py-2 rounded-lg shadow-lg hidden">Copied!</div>
+
+<script>
+  const friends = [
+    { name:"Rahul Verma",   status:"Subscribed", date:"12 Jun 2026", reward:"+500" },
+    { name:"Ananya Gupta",  status:"Subscribed", date:"08 Jun 2026", reward:"+500" },
+    { name:"Karthik Reddy", status:"Subscribed", date:"02 Jun 2026", reward:"+500" },
+    { name:"Sneha Iyer",    status:"Subscribed", date:"28 May 2026", reward:"+500" },
+    { name:"Aman Khan",     status:"Registered", date:"15 Jun 2026", reward:"Pending" },
+    { name:"Divya Nair",    status:"Registered", date:"11 Jun 2026", reward:"Pending" },
+    { name:"Rohit Sharma",  status:"Registered", date:"09 Jun 2026", reward:"Pending" },
+    { name:"Meera Joshi",   status:"Clicked",    date:"16 Jun 2026", reward:"—" },
+    { name:"Vikram Singh",  status:"Clicked",    date:"14 Jun 2026", reward:"—" },
+  ];
+  const badge = { Subscribed:"bg-brand-successBg text-brand-success", Registered:"bg-brand-infoBg text-brand-info", Clicked:"bg-gray-100 text-brand-textMuted" };
+  const initials = n => n.split(" ").map(w=>w[0]).join("").slice(0,2);
+  document.getElementById("refTable").innerHTML = friends.map(f=>`
+    <tr class="ref-row">
+      <td class="px-6 py-3"><div class="flex items-center gap-3"><span class="w-8 h-8 rounded-full bg-brand-primary text-white text-xs font-bold flex items-center justify-center">${initials(f.name)}</span><span class="font-medium">${f.name}</span></div></td>
+      <td class="px-6 py-3"><span class="px-2.5 py-1 rounded-full text-xs font-medium ${badge[f.status]}">${f.status}</span></td>
+      <td class="px-6 py-3 text-brand-textMuted">${f.date}</td>
+      <td class="px-6 py-3 text-right font-medium ${f.reward.startsWith('+')?'text-brand-success':'text-brand-textMuted'}">${f.reward.startsWith('+')?f.reward+' 🪙':f.reward}</td>
+    </tr>`).join("");
+
+  let toastTimer;
+  function showToast(msg){ const t=document.getElementById("toast"); t.textContent=msg; t.classList.remove("hidden"); clearTimeout(toastTimer); toastTimer=setTimeout(()=>t.classList.add("hidden"),1800); }
+  function copyText(text,msg){ navigator.clipboard?.writeText(text).catch(()=>{}); showToast(msg||"Copied!"); }
+  function share(ch){ const link=document.getElementById("refLink").value; const msg=`Join me on AAA Lakshya and get a discount on your first plan! ${link}`;
+    const urls={ whatsapp:`https://wa.me/?text=${encodeURIComponent(msg)}`, sms:`sms:?body=${encodeURIComponent(msg)}`, email:`mailto:?subject=${encodeURIComponent("Join me on AAA Lakshya")}&body=${encodeURIComponent(msg)}` };
+    window.open(urls[ch],"_blank"); showToast("Opening "+ch+"…"); }
+  lucide.createIcons();
+</script>
+</body>
+</html>

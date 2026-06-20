@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AAA Lakshya — Referral System Mockups</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="https://unpkg.com/lucide@latest"></script>
+<script>
+tailwind.config = { theme: { extend: {
+  colors: { brand: { primary:'#0a7c85', primaryDark:'#075e66', heroTeal:'#1a9ea8', secondary:'#a8dce0', subtle:'#e0f5f6', page:'#f5f9f9', success:'#2ba080', info:'#3b8fd4', warning:'#f4735a', textPrimary:'#111827', textSecondary:'#374151', textMuted:'#6b7280' } },
+  fontFamily: { sans:['Geist','ui-sans-serif','system-ui','sans-serif'] } } } }
+</script>
+<style>
+  body{font-family:'Geist',ui-sans-serif,system-ui,sans-serif}
+  .card{transition:transform .15s ease, box-shadow .15s ease}
+  .card:hover{transform:translateY(-3px);box-shadow:0 12px 24px -8px rgba(10,124,133,.25)}
+</style>
+</head>
+<body class="bg-brand-page text-brand-textPrimary">
+
+  <!-- Top band (brand teal) -->
+  <div class="bg-brand-primary text-white">
+    <div class="max-w-5xl mx-auto px-6 py-3 flex items-center gap-2">
+      <div class="h-8 w-8 rounded-full bg-white flex items-center justify-center"><span class="text-brand-primary font-extrabold text-[11px]">AAA</span></div>
+      <span class="text-[13px] font-bold tracking-wide">ARJUNAA ACADEMY FOR ACHIEVERS</span>
+      <span class="ml-auto text-[12px] text-white/70">Lakshya · Referral System</span>
+    </div>
+  </div>
+
+  <div class="max-w-5xl mx-auto px-6 py-12">
+    <!-- Hero -->
+    <header class="text-center mb-12">
+      <h1 class="text-4xl font-extrabold text-brand-primaryDark flex items-center justify-center gap-3">🎁 Referral System</h1>
+      <p class="text-lg text-brand-textSecondary mt-2">Interactive Mockups — Refer &amp; Earn (Phase 3)</p>
+      <p class="text-sm text-brand-textMuted mt-1">June 20, 2026 · Phase 3 — P2 Priority</p>
+      <p class="text-xs text-brand-textMuted/70 mt-0.5">Based on: P3-03 Referral System spec (ORD 4.5.2, Agenda §19)</p>
+    </header>
+
+    <!-- Group: Student -->
+    <section class="mb-10">
+      <div class="flex items-center gap-3 mb-4">
+        <span class="rounded-full bg-brand-subtle text-brand-primary text-xs font-semibold px-3 py-1">1 screen</span>
+        <h2 class="text-2xl font-bold text-brand-primary">Student — Refer &amp; Earn</h2>
+      </div>
+      <div class="grid sm:grid-cols-2 gap-5">
+        <a href="my-referrals.html" class="card block rounded-2xl bg-white border-l-4 border-brand-primary shadow-sm p-6">
+          <div class="h-11 w-11 rounded-xl bg-brand-subtle flex items-center justify-center text-brand-primary mb-4"><i data-lucide="gift" class="h-6 w-6"></i></div>
+          <p class="font-bold text-lg">1. My Referrals Dashboard</p>
+          <p class="text-sm text-brand-textMuted mt-1">Referral code &amp; link, copy + WhatsApp/SMS/Email share, stats, rewards (earned &amp; pending), referred-friends list, tips.</p>
+        </a>
+      </div>
+    </section>
+
+    <!-- Group: Referee -->
+    <section class="mb-10">
+      <div class="flex items-center gap-3 mb-4">
+        <span class="rounded-full bg-[#d6f0e8] text-brand-success text-xs font-semibold px-3 py-1">1 screen</span>
+        <h2 class="text-2xl font-bold text-brand-success">Referee — First Purchase</h2>
+      </div>
+      <div class="grid sm:grid-cols-2 gap-5">
+        <a href="referee-checkout.html" class="card block rounded-2xl bg-white border-l-4 border-brand-success shadow-sm p-6">
+          <div class="h-11 w-11 rounded-xl bg-[#d6f0e8] flex items-center justify-center text-brand-success mb-4"><i data-lucide="tag" class="h-6 w-6"></i></div>
+          <p class="font-bold text-lg">2. Checkout — Referral Discount</p>
+          <p class="text-sm text-brand-textMuted mt-1">"Referred by Priya" banner and a discount auto-applied to the first purchase, with a live order summary.</p>
+        </a>
+      </div>
+    </section>
+
+    <!-- Group: Admin -->
+    <section class="mb-10">
+      <div class="flex items-center gap-3 mb-4">
+        <span class="rounded-full bg-[#e0eefa] text-brand-info text-xs font-semibold px-3 py-1">1 screen</span>
+        <h2 class="text-2xl font-bold text-brand-info">Admin — Program Controls</h2>
+      </div>
+      <div class="grid sm:grid-cols-2 gap-5">
+        <a href="admin-referrals.html" class="card block rounded-2xl bg-white border-l-4 border-brand-info shadow-sm p-6">
+          <div class="h-11 w-11 rounded-xl bg-[#e0eefa] flex items-center justify-center text-brand-info mb-4"><i data-lucide="sliders-horizontal" class="h-6 w-6"></i></div>
+          <p class="font-bold text-lg">3. Referral Program Admin</p>
+          <p class="text-sm text-brand-textMuted mt-1">Configure reward tokens &amp; referee discount, enable/disable program, analytics (conversion, revenue, top referrers), approve/reject flagged referrals.</p>
+        </a>
+      </div>
+    </section>
+
+    <p class="text-center text-xs text-brand-textMuted mt-12">AAA Lakshya · Referral System · interactive mockups for client review — not connected to the live application.</p>
+  </div>
+
+<script>lucide.createIcons();</script>
+</body>
+</html>

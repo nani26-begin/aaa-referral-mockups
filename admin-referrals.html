@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Referral Program — Admin · AAA Lakshya</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="https://unpkg.com/lucide@latest"></script>
+<script>
+tailwind.config = { theme: { extend: {
+  colors: { brand: {
+    primary:'#0a7c85', primaryDark:'#075e66', primaryHover:'#0d8f99', heroTeal:'#1a9ea8',
+    secondary:'#a8dce0', subtle:'#e0f5f6', page:'#f5f9f9',
+    success:'#2ba080', successBg:'#d6f0e8', warning:'#f4735a', warningBg:'#fdeae6',
+    info:'#3b8fd4', infoBg:'#e0eefa',
+    textPrimary:'#111827', textSecondary:'#374151', textMuted:'#6b7280', border:'#d1d5db' } },
+  fontFamily: { sans:['Geist','ui-sans-serif','system-ui','sans-serif'] } } } }
+</script>
+<style>
+  body{font-family:'Geist',ui-sans-serif,system-ui,sans-serif}
+  .btn-brand{background-image:linear-gradient(174deg,#3bafa8,#2c9d96);box-shadow:0 2px 12px rgba(59,175,168,.3);color:#fff}
+  .btn-brand:hover{background-image:linear-gradient(174deg,#35a39c,#278f89)}
+  .nav-item{display:flex;align-items:center;gap:.5rem;padding:.625rem .75rem .625rem .5rem;font-size:13px;font-weight:500;border-radius:.75rem;color:rgba(255,255,255,.7);border-left:4px solid transparent}
+  .nav-item:hover{background:rgba(255,255,255,.05);color:#fff}
+  .nav-item.active{background:#fff;color:#0a7c85;box-shadow:0 1px 2px rgba(0,0,0,.06);padding-left:.75rem}
+  tr.row:hover{background:#f5f9f9}
+  /* toggle */
+  .switch{position:relative;display:inline-block;width:44px;height:24px}
+  .switch input{opacity:0;width:0;height:0}
+  .slider{position:absolute;inset:0;background:#cbd5e0;border-radius:999px;transition:.2s;cursor:pointer}
+  .slider:before{content:"";position:absolute;height:18px;width:18px;left:3px;top:3px;background:#fff;border-radius:50%;transition:.2s}
+  input:checked+.slider{background:#0a7c85}
+  input:checked+.slider:before{transform:translateX(20px)}
+</style>
+</head>
+<body class="bg-brand-page text-brand-textPrimary">
+<div class="flex h-screen overflow-hidden">
+
+  <!-- Admin sidebar -->
+  <aside class="hidden md:flex w-[210px] shrink-0 flex-col bg-brand-primary text-white border-r border-[#115e59]">
+    <div class="flex items-center gap-2 px-3 py-4">
+      <div class="h-10 w-10 shrink-0 rounded-full bg-white flex items-center justify-center"><span class="text-brand-primary font-extrabold text-sm">AAA</span></div>
+      <span class="text-[14px] font-bold leading-[16px]">ARJUNAA<br>ACADEMY<br><span class="text-white/70 text-[11px] font-semibold">Admin Console</span></span>
+    </div>
+    <nav class="space-y-1 px-2 pt-2">
+      <a class="nav-item"><i data-lucide="layout-dashboard" class="h-4 w-4"></i>Dashboard</a>
+      <a class="nav-item"><i data-lucide="book-marked" class="h-4 w-4"></i>Courses</a>
+      <a class="nav-item"><i data-lucide="users" class="h-4 w-4"></i>Users</a>
+      <a class="nav-item"><i data-lucide="shield" class="h-4 w-4"></i>Roles &amp; Permissions</a>
+      <a class="nav-item active"><i data-lucide="gift" class="h-4 w-4"></i>Referral Program</a>
+    </nav>
+    <div class="flex-1"></div>
+    <div class="border-t border-white/15 px-3 py-2.5 flex items-center gap-2.5">
+      <div class="h-8 w-8 rounded-full bg-white flex items-center justify-center text-brand-primary font-bold text-xs">AD</div>
+      <div class="min-w-0 flex-1"><p class="truncate text-[13px] font-semibold text-white">Admin</p></div>
+      <i data-lucide="chevron-up" class="h-4 w-4 text-white/50"></i>
+    </div>
+  </aside>
+
+  <div class="flex min-w-0 flex-1 flex-col overflow-hidden">
+    <header class="flex h-[64px] md:h-[80px] shrink-0 items-center border-b border-[#e6e8e9] bg-[rgba(246,250,250,0.85)] px-4 md:px-8 backdrop-blur">
+      <a href="index.html" class="flex items-center gap-1.5 text-[13px] font-medium text-brand-textMuted hover:text-brand-primary"><i data-lucide="arrow-left" class="h-4 w-4"></i> All Mockups</a>
+      <div class="ml-auto flex items-center gap-2">
+        <span class="flex h-[32px] items-center rounded-full bg-brand-secondary px-4 text-[12px] md:text-[13px] font-semibold uppercase text-[#006d77]">Platform Admin</span>
+        <button class="relative h-9 w-9 rounded-full hover:bg-black/5 flex items-center justify-center text-brand-textSecondary"><i data-lucide="bell" class="h-5 w-5"></i></button>
+      </div>
+    </header>
+
+    <main class="flex-1 overflow-y-auto px-4 sm:px-6 py-4 sm:py-6">
+      <nav class="mb-3 flex items-center gap-1.5 text-[12px] text-brand-textMuted">
+        <span>Admin</span><i data-lucide="chevron-right" class="h-3.5 w-3.5"></i><span class="font-medium text-brand-textSecondary">Referral Program</span>
+      </nav>
+
+      <div class="mb-5 flex flex-wrap items-center justify-between gap-3">
+        <div>
+          <h1 class="text-[22px] font-bold">Referral Program</h1>
+          <p class="text-[14px] text-brand-textMuted">Configure rewards, monitor referrals across the platform, and review flagged activity.</p>
+        </div>
+        <div class="flex items-center gap-3 rounded-xl border border-[#e6e8e9] bg-white px-4 py-2.5">
+          <span class="text-sm font-medium">Program Status</span>
+          <label class="switch"><input type="checkbox" checked><span class="slider"></span></label>
+          <span class="text-sm font-semibold text-brand-success">Enabled</span>
+        </div>
+      </div>
+
+      <!-- Analytics -->
+      <section class="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
+        <div class="bg-white rounded-2xl border border-[#e6e8e9] p-5"><p class="text-sm text-brand-textMuted">Total Referrals</p><p class="text-2xl font-bold mt-1">1,284</p><p class="text-xs text-brand-success mt-1">+8.2% this month</p></div>
+        <div class="bg-white rounded-2xl border border-[#e6e8e9] p-5"><p class="text-sm text-brand-textMuted">Conversion Rate</p><p class="text-2xl font-bold mt-1">31.4%</p><p class="text-xs text-brand-textMuted mt-1">clicked → subscribed</p></div>
+        <div class="bg-white rounded-2xl border border-[#e6e8e9] p-5"><p class="text-sm text-brand-textMuted">Revenue from Referrals</p><p class="text-2xl font-bold mt-1">₹6.4L</p><p class="text-xs text-brand-success mt-1">+12% this month</p></div>
+        <div class="bg-white rounded-2xl border border-[#e6e8e9] p-5"><p class="text-sm text-brand-textMuted">Flagged for Review</p><p class="text-2xl font-bold mt-1 text-brand-warning">5</p><p class="text-xs text-brand-textMuted mt-1">suspicious patterns</p></div>
+      </section>
+
+      <div class="grid lg:grid-cols-3 gap-6 mb-6">
+        <!-- Settings -->
+        <section class="lg:col-span-1 bg-white rounded-2xl border border-[#e6e8e9] p-6">
+          <h2 class="text-lg font-semibold mb-4">Reward Configuration</h2>
+          <div class="space-y-5">
+            <div>
+              <label class="text-sm font-medium">Referrer reward (tokens)</label>
+              <div class="mt-1.5 flex items-center gap-2">
+                <input type="number" value="500" class="w-full rounded-lg border border-[#d1d5db] px-3 py-2 text-sm focus:ring-2 focus:ring-brand-primary outline-none">
+                <span class="text-sm text-brand-textMuted whitespace-nowrap">🪙 / referral</span>
+              </div>
+              <p class="text-xs text-brand-textMuted mt-1">Credited only after referee subscribes (RF-15).</p>
+            </div>
+            <div>
+              <label class="text-sm font-medium">Referee first-purchase discount</label>
+              <div class="mt-1.5 flex items-center gap-2">
+                <input type="number" value="15" class="w-full rounded-lg border border-[#d1d5db] px-3 py-2 text-sm focus:ring-2 focus:ring-brand-primary outline-none">
+                <select class="rounded-lg border border-[#d1d5db] px-2 py-2 text-sm bg-white"><option>%</option><option>₹</option></select>
+              </div>
+              <p class="text-xs text-brand-textMuted mt-1">Auto-applied at checkout, first purchase only.</p>
+            </div>
+            <div class="flex items-center justify-between">
+              <div><p class="text-sm font-medium">Attribution window</p><p class="text-xs text-brand-textMuted">Days a click stays valid</p></div>
+              <input type="number" value="30" class="w-20 rounded-lg border border-[#d1d5db] px-3 py-2 text-sm text-right">
+            </div>
+            <button class="btn-brand w-full rounded-lg py-2.5 text-sm font-semibold">Save Configuration</button>
+          </div>
+        </section>
+
+        <!-- Top referrers -->
+        <section class="lg:col-span-2 bg-white rounded-2xl border border-[#e6e8e9] p-6">
+          <h2 class="text-lg font-semibold mb-4">Top Referrers</h2>
+          <div id="topReferrers" class="space-y-3"></div>
+        </section>
+      </div>
+
+      <!-- Flagged / all referrals -->
+      <section class="bg-white rounded-2xl border border-[#e6e8e9] overflow-hidden">
+        <div class="border-b border-[#e6e8e9] px-6 py-4 flex flex-wrap items-center justify-between gap-2">
+          <h2 class="text-lg font-semibold">Flagged Referrals — Needs Review</h2>
+          <span class="text-sm text-brand-textMuted">Approve or reject suspicious patterns (RF-47)</span>
+        </div>
+        <div class="overflow-x-auto">
+          <table class="w-full text-sm">
+            <thead class="bg-brand-page text-brand-textMuted text-left">
+              <tr><th class="px-6 py-3 font-medium">Referrer</th><th class="px-6 py-3 font-medium">Referee</th><th class="px-6 py-3 font-medium">Flag Reason</th><th class="px-6 py-3 font-medium">Date</th><th class="px-6 py-3 font-medium text-right">Action</th></tr>
+            </thead>
+            <tbody id="flagTable" class="divide-y divide-[#eef2f2]"></tbody>
+          </table>
+        </div>
+      </section>
+
+      <p class="text-center text-xs text-brand-textMuted mt-8">Referral System mockup · P3-03 · Admin · for review only</p>
+    </main>
+  </div>
+</div>
+
+<div id="toast" class="fixed bottom-6 left-1/2 -translate-x-1/2 bg-brand-textPrimary text-white text-sm px-4 py-2 rounded-lg shadow-lg hidden">Done</div>
+
+<script>
+  const top = [
+    { name:"Priya Sharma", refs:14, revenue:"₹42,000" },
+    { name:"Arjun Mehta",  refs:11, revenue:"₹33,000" },
+    { name:"Sana Kapoor",  refs:9,  revenue:"₹27,000" },
+    { name:"Dev Patel",    refs:7,  revenue:"₹21,000" },
+  ];
+  const medal=["bg-[#fff3cd] text-[#b8860b]","bg-gray-100 text-brand-textSecondary","bg-[#fdeae6] text-brand-warning","bg-brand-subtle text-brand-primary"];
+  document.getElementById("topReferrers").innerHTML = top.map((t,i)=>`
+    <div class="flex items-center gap-3 rounded-xl border border-[#eef2f2] px-4 py-3">
+      <span class="h-8 w-8 rounded-full flex items-center justify-center text-sm font-bold ${medal[i]}">${i+1}</span>
+      <span class="h-8 w-8 rounded-full bg-brand-primary text-white text-xs font-bold flex items-center justify-center">${t.name.split(" ").map(w=>w[0]).join("")}</span>
+      <div class="flex-1 min-w-0"><p class="font-medium truncate">${t.name}</p><p class="text-xs text-brand-textMuted">${t.refs} successful referrals</p></div>
+      <span class="text-sm font-semibold text-brand-success">${t.revenue}</span>
+    </div>`).join("");
+
+  const flags = [
+    { referrer:"Rohit K.", referee:"rohit.k2@gmail.com", reason:"Same device as referrer", date:"16 Jun 2026" },
+    { referrer:"Neha S.",  referee:"test_account_9@x.com", reason:"5 sign-ups in 10 min",    date:"15 Jun 2026" },
+    { referrer:"Amit V.",  referee:"amit.alt@gmail.com",  reason:"Matching phone number",   date:"14 Jun 2026" },
+  ];
+  document.getElementById("flagTable").innerHTML = flags.map((f,i)=>`
+    <tr class="row" id="flag${i}">
+      <td class="px-6 py-3 font-medium">${f.referrer}</td>
+      <td class="px-6 py-3 text-brand-textMuted">${f.referee}</td>
+      <td class="px-6 py-3"><span class="px-2.5 py-1 rounded-full text-xs font-medium bg-brand-warningBg text-brand-warning">${f.reason}</span></td>
+      <td class="px-6 py-3 text-brand-textMuted">${f.date}</td>
+      <td class="px-6 py-3 text-right whitespace-nowrap">
+        <button onclick="resolve(${i},'approved')" class="px-3 py-1.5 rounded-lg text-xs font-semibold bg-brand-successBg text-brand-success hover:opacity-80">Approve</button>
+        <button onclick="resolve(${i},'rejected')" class="px-3 py-1.5 rounded-lg text-xs font-semibold bg-brand-warningBg text-brand-warning hover:opacity-80 ml-1">Reject</button>
+      </td>
+    </tr>`).join("");
+
+  let tt;
+  function toast(m){ const t=document.getElementById("toast"); t.textContent=m; t.classList.remove("hidden"); clearTimeout(tt); tt=setTimeout(()=>t.classList.add("hidden"),1600); }
+  function resolve(i,action){
+    const row=document.getElementById("flag"+i);
+    const color = action==="approved" ? "text-brand-success" : "text-brand-warning";
+    row.querySelector("td:last-child").innerHTML = `<span class="text-xs font-semibold ${color} capitalize">${action} ✓</span>`;
+    toast("Referral "+action);
+  }
+  lucide.createIcons();
+</script>
+</body>
+</html>
