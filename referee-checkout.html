@@ -11,111 +11,165 @@
 <script src="https://unpkg.com/lucide@latest"></script>
 <script>
 tailwind.config = { theme: { extend: {
-  colors: { brand: {
-    primary:'#0a7c85', primaryDark:'#075e66', primaryHover:'#0d8f99', heroTeal:'#1a9ea8',
-    secondary:'#a8dce0', subtle:'#e0f5f6', page:'#f5f9f9',
-    success:'#2ba080', successBg:'#d6f0e8', warning:'#f4735a', warningBg:'#fdeae6',
-    info:'#3b8fd4', infoBg:'#e0eefa',
-    textPrimary:'#111827', textSecondary:'#374151', textMuted:'#6b7280', border:'#d1d5db' } },
+  colors: { brand: { primary:'#0a7c85', primaryDark:'#075e66', primaryAccent:'#006d77', heroTeal:'#1a9ea8', secondary:'#a8dce0', subtle:'#e0f5f6', page:'#f5f9f9', success:'#2ba080', textPrimary:'#111827', textSecondary:'#374151', textMuted:'#6b7280' } },
   fontFamily: { sans:['Geist','ui-sans-serif','system-ui','sans-serif'] } } } }
 </script>
 <style>
   body{font-family:'Geist',ui-sans-serif,system-ui,sans-serif}
-  .btn-brand{background-image:linear-gradient(174deg,#3bafa8,#2c9d96);box-shadow:0 2px 12px rgba(59,175,168,.3);color:#fff}
-  .btn-brand:hover{background-image:linear-gradient(174deg,#35a39c,#278f89)}
-  .plan{cursor:pointer;transition:.15s}
-  .plan.sel{border-color:#0a7c85;box-shadow:0 0 0 2px #0a7c85 inset}
 </style>
 </head>
 <body class="bg-brand-page text-brand-textPrimary min-h-screen flex flex-col">
 
-  <!-- Minimal checkout top bar -->
-  <header class="flex h-[64px] shrink-0 items-center border-b border-[#e6e8e9] bg-white px-4 md:px-8">
-    <div class="flex items-center gap-2">
-      <div class="h-9 w-9 rounded-full bg-brand-primary flex items-center justify-center"><span class="text-white font-extrabold text-xs">AAA</span></div>
-      <span class="text-[14px] font-bold leading-[15px] text-brand-primary">ARJUNAA ACADEMY<br><span class="font-semibold text-brand-textMuted text-[11px]">FOR ACHIEVERS</span></span>
+  <!-- ── Minimal frosted checkout header (real app) ───────── -->
+  <header class="sticky top-0 z-50 flex h-[60px] md:h-[100px] items-center justify-between bg-[rgba(246,250,250,0.8)] px-4 md:px-8 backdrop-blur-[6px]">
+    <a href="index.html" class="flex items-center gap-2 md:gap-3">
+      <div class="h-[44px] w-[44px] md:h-[56px] md:w-[56px] shrink-0 rounded-full bg-brand-primary flex items-center justify-center">
+        <span class="text-white font-extrabold text-sm md:text-base">AAA</span>
+      </div>
+      <span class="hidden md:block text-[22px] font-bold leading-[24px] text-brand-primary">ARJUNAA<br>ACADEMY FOR<br>ACHIEVERS</span>
+    </a>
+    <div class="flex items-center gap-3 md:gap-6">
+      <div class="flex items-center gap-1.5 md:gap-2">
+        <i data-lucide="lock" class="h-3.5 w-3.5 text-brand-textSecondary"></i>
+        <span class="text-[12px] md:text-[14px] font-medium text-brand-textSecondary">Secure Checkout</span>
+      </div>
+      <a href="index.html" class="flex items-center justify-center rounded-full p-2 hover:bg-black/5"><i data-lucide="x" class="h-3.5 w-3.5 text-brand-textSecondary"></i></a>
     </div>
-    <a href="index.html" class="ml-auto flex items-center gap-1.5 text-[13px] font-medium text-brand-textMuted hover:text-brand-primary"><i data-lucide="arrow-left" class="h-4 w-4"></i> All Mockups</a>
   </header>
 
-  <main class="flex-1 mx-auto w-full max-w-5xl px-4 sm:px-6 py-8">
-    <h1 class="text-[22px] font-bold">Complete Your Subscription</h1>
-    <p class="text-[14px] text-brand-textMuted mb-5">You're almost there, Aman. Pick a plan to start learning.</p>
+  <main class="flex-1">
+    <div class="mx-auto flex w-full max-w-[1104px] flex-col-reverse items-stretch gap-6 px-4 pt-4 pb-16 md:flex-row md:gap-12 md:pt-8 md:px-0">
 
-    <!-- Referral banner (RF-32) -->
-    <div class="mb-6 flex items-center gap-3 rounded-2xl border border-brand-secondary bg-brand-subtle px-5 py-4">
-      <span class="h-10 w-10 shrink-0 rounded-full bg-brand-primary text-white flex items-center justify-center"><i data-lucide="gift" class="h-5 w-5"></i></span>
-      <div class="flex-1">
-        <p class="text-sm font-semibold text-brand-primaryDark">Referred by Priya Sharma</p>
-        <p class="text-[13px] text-[#0b5a61]">Your 15% first-purchase discount has been applied automatically.</p>
+      <!-- ── Left: Payment Form (flex-7, order-2) ─────────── -->
+      <div class="w-full rounded-[16px] border border-[rgba(189,201,202,0.4)] bg-white p-5 shadow-[0px_20px_25px_-5px_rgba(0,97,105,0.05),0px_8px_10px_-6px_rgba(0,97,105,0.05)] md:flex-[7] md:p-[33px] md:order-2">
+        <div class="flex flex-col gap-8">
+          <h2 class="text-[24px] font-bold leading-[32px] tracking-[-0.6px] text-brand-textPrimary">Payment Details</h2>
+
+          <!-- payment method chips -->
+          <div class="flex gap-2 overflow-x-auto">
+            <div class="flex items-center gap-2 whitespace-nowrap rounded-[12px] bg-[#f0f4f4] px-6 py-3 text-[16px] font-semibold text-brand-textSecondary"><i data-lucide="smartphone" class="h-[18px] w-[18px]"></i>UPI</div>
+            <div class="flex items-center gap-2 whitespace-nowrap rounded-[12px] bg-[#f0f4f4] px-6 py-3 text-[16px] font-semibold text-brand-textSecondary"><i data-lucide="credit-card" class="h-[18px] w-[18px]"></i>Cards</div>
+            <div class="flex items-center gap-2 whitespace-nowrap rounded-[12px] bg-[#f0f4f4] px-6 py-3 text-[16px] font-semibold text-brand-textSecondary"><i data-lucide="building-2" class="h-[18px] w-[18px]"></i>Net Banking</div>
+            <div class="flex items-center gap-2 whitespace-nowrap rounded-[12px] bg-[#f0f4f4] px-6 py-3 text-[16px] font-semibold text-brand-textSecondary"><i data-lucide="wallet" class="h-[18px] w-[18px]"></i>Wallets</div>
+          </div>
+
+          <div class="flex items-center gap-2 rounded-[12px] border border-dashed border-[rgba(189,201,202,0.4)] px-4 py-6 text-[14px] text-brand-textMuted">
+            <i data-lucide="info" class="h-4 w-4 shrink-0 text-brand-textSecondary/60"></i>
+            Payment method will be selected in the Razorpay checkout window.
+          </div>
+
+          <div class="flex items-center gap-3 rounded-[12px] border border-[rgba(43,160,128,0.2)] bg-[rgba(43,160,128,0.1)] p-[17px]">
+            <i data-lucide="check" class="h-[21px] w-[21px] text-[#2ba080]"></i>
+            <span class="text-[14px] font-semibold text-[#2ba080]">No auto-debit. One-time payment.</span>
+          </div>
+
+          <div class="rounded-[12px] border border-[rgba(189,201,202,0.2)] bg-[rgba(240,244,244,0.5)] p-4">
+            <label class="flex cursor-pointer items-start gap-4">
+              <input id="ack" type="checkbox" onchange="toggleAck()" class="mt-1 h-5 w-5 shrink-0 rounded-[4px] border border-[#bdc9ca] accent-[#0a7c85]">
+              <span class="text-[14px] leading-[22.75px] text-[#374151]">I understand this is a <strong>non-refundable purchase</strong>. I have reviewed the curriculum and mentorship schedule as per the Arjunaa Academy guidelines.</span>
+            </label>
+          </div>
+
+          <button id="payBtn" disabled onclick="pay()" class="flex h-[64px] items-center justify-center rounded-[12px] text-[18px] font-bold text-white shadow-[0px_20px_25px_-5px_rgba(0,97,105,0.2),0px_8px_10px_-6px_rgba(0,97,105,0.2)] transition-opacity cursor-not-allowed opacity-50" style="background-image:linear-gradient(173deg,#006169,#0a7c85)">Pay ₹8,022.82</button>
+
+          <div class="flex flex-col items-center gap-4 py-4">
+            <div class="flex items-center gap-2">
+              <i data-lucide="shield" class="h-3.5 w-3 text-[#6b7280]"></i>
+              <span class="text-[14px] font-medium text-[#6b7280]">Secured by</span>
+              <span class="text-[14px] font-bold tracking-[-0.35px] text-brand-textPrimary">Razorpay</span>
+            </div>
+          </div>
+        </div>
       </div>
-      <span class="rounded-full bg-white px-3 py-1 text-xs font-semibold text-brand-primary">Code: AAA7K2P</span>
-    </div>
 
-    <div class="grid lg:grid-cols-[1fr_360px] gap-6 items-start">
-      <!-- Plans -->
-      <section class="space-y-4">
-        <div onclick="selectPlan('standard')" id="plan-standard" class="plan rounded-2xl border-2 border-[#e6e8e9] bg-white p-5">
-          <div class="flex items-start justify-between">
+      <!-- ── Right: Order Summary (flex-5, order-1) ───────── -->
+      <div class="w-full rounded-[16px] border border-[rgba(189,201,202,0.4)] bg-white p-5 shadow-[0px_1px_2px_0px_rgba(0,0,0,0.05)] md:flex-[5] md:p-[33px] md:order-1">
+        <div class="flex flex-col gap-5 md:gap-8">
+          <p class="text-[11px] font-bold uppercase tracking-[1.2px] text-brand-textSecondary md:text-[24px] md:font-bold md:normal-case md:tracking-[-0.6px] md:text-brand-textPrimary md:leading-[32px]">Order Summary</p>
+
+          <div class="flex flex-col gap-4 md:gap-6">
             <div>
-              <p class="font-semibold text-lg">Standard</p>
-              <p class="text-sm text-brand-textMuted">All core courses, tests &amp; doubt support.</p>
+              <p class="text-[18px] font-bold text-brand-textPrimary md:text-[16px]">Advanced Plan — NEET 2027</p>
+              <p class="mt-0.5 text-[13px] text-brand-textSecondary md:text-[14px]">Full year access • Complete Syllabus</p>
             </div>
-            <div class="text-right"><p class="text-xl font-bold">₹4,999<span class="text-sm font-normal text-brand-textMuted">/yr</span></p></div>
-          </div>
-        </div>
-        <div onclick="selectPlan('advanced')" id="plan-advanced" class="plan sel rounded-2xl border-2 border-brand-primary bg-white p-5 relative">
-          <span class="absolute -top-2.5 left-5 rounded-full bg-brand-primary px-2.5 py-0.5 text-[11px] font-semibold text-white">Most Popular</span>
-          <div class="flex items-start justify-between">
-            <div>
-              <p class="font-semibold text-lg">Advanced</p>
-              <p class="text-sm text-brand-textMuted">Everything in Standard + live classes &amp; mentorship.</p>
-            </div>
-            <div class="text-right"><p class="text-xl font-bold">₹7,999<span class="text-sm font-normal text-brand-textMuted">/yr</span></p></div>
-          </div>
-        </div>
-      </section>
 
-      <!-- Order summary -->
-      <aside class="rounded-2xl border border-[#e6e8e9] bg-white p-6">
-        <h2 class="font-semibold mb-4">Order Summary</h2>
-        <div class="space-y-2.5 text-sm">
-          <div class="flex justify-between"><span class="text-brand-textMuted">Plan</span><span id="sumPlan" class="font-medium">Advanced (yearly)</span></div>
-          <div class="flex justify-between"><span class="text-brand-textMuted">Subtotal</span><span id="sumSub" class="font-medium">₹7,999</span></div>
-          <div class="flex justify-between text-brand-success">
-            <span class="flex items-center gap-1"><i data-lucide="tag" class="h-3.5 w-3.5"></i>Referral discount (15%)</span>
-            <span id="sumDisc" class="font-medium">−₹1,200</span>
+            <!-- Referral applied banner (RF-31/32) -->
+            <div class="flex items-center gap-3 rounded-[12px] border border-brand-secondary bg-brand-subtle px-4 py-3">
+              <span class="h-9 w-9 shrink-0 rounded-full bg-brand-primary text-white flex items-center justify-center"><i data-lucide="gift" class="h-5 w-5"></i></span>
+              <div class="flex-1 min-w-0">
+                <p class="text-[13px] font-semibold text-brand-primaryDark">Referred by Priya Sharma</p>
+                <p class="text-[12px] text-[#0b5a61]">Referral discount applied automatically.</p>
+              </div>
+              <span class="rounded-full bg-white px-2.5 py-1 text-[11px] font-semibold text-brand-primary">AAA7K2P</span>
+            </div>
+
+            <div class="border-t border-dashed border-[rgba(189,201,202,0.5)]"></div>
+
+            <!-- breakdown (mirrors real checkout) -->
+            <div class="flex flex-col gap-3 md:gap-4">
+              <div class="flex items-center justify-between">
+                <span class="text-[14px] font-medium text-brand-textSecondary md:text-[16px]">Base Price</span>
+                <span class="text-[14px] font-medium text-brand-textSecondary md:text-[16px]">₹7,999.00</span>
+              </div>
+              <div class="flex items-center justify-between">
+                <span class="flex items-center gap-1.5 text-[14px] font-medium text-green-600 md:text-[16px]"><i data-lucide="tag" class="h-3.5 w-3.5"></i>Referral discount (15%)</span>
+                <span class="text-[14px] font-medium text-green-600 md:text-[16px]">-₹1,200.00</span>
+              </div>
+              <div class="flex items-center justify-between">
+                <span class="text-[14px] font-semibold text-brand-textPrimary md:text-[16px]">Taxable Amount</span>
+                <span class="text-[14px] font-semibold text-brand-textPrimary md:text-[16px]">₹6,799.00</span>
+              </div>
+              <div class="flex items-center justify-between">
+                <span class="text-[14px] font-medium text-brand-textSecondary md:text-[16px]">Taxes (GST 18%)</span>
+                <span class="text-[14px] font-medium text-brand-textSecondary md:text-[16px]">₹1,223.82</span>
+              </div>
+            </div>
+
+            <div class="flex items-center justify-between border-t border-[rgba(189,201,202,0.3)] pt-4">
+              <span class="text-[16px] font-bold text-brand-textPrimary md:text-[18px]">Total Amount</span>
+              <span class="text-[22px] font-extrabold text-[#111827] md:text-[30px]">₹8,022.82</span>
+            </div>
+
+            <div class="rounded-[10px] bg-[rgba(43,160,128,0.1)] px-3 py-2 text-[12px] font-medium text-[#2ba080] flex items-center gap-1.5">
+              <i data-lucide="badge-check" class="h-4 w-4"></i> You save ₹1,200 on your first purchase with this referral.
+            </div>
           </div>
-          <div class="border-t border-[#eef2f2] my-2"></div>
-          <div class="flex justify-between text-base"><span class="font-semibold">Total</span><span id="sumTotal" class="font-bold text-brand-primary">₹6,799</span></div>
+
+          <!-- included benefits -->
+          <div class="hidden md:block border-t border-[rgba(189,201,202,0.3)] pt-[33px]">
+            <div class="flex flex-col gap-4">
+              <div class="flex items-center gap-2">
+                <i data-lucide="info" class="h-3.5 w-3.5 text-brand-textSecondary/70"></i>
+                <span class="text-[12px] font-bold uppercase tracking-[1.2px] text-brand-textSecondary/70">Included Benefits</span>
+              </div>
+              <div class="flex flex-col gap-3">
+                <div class="flex items-center gap-2"><i data-lucide="check" class="h-[15px] w-[15px] text-brand-primary"></i><span class="text-[14px] text-brand-textSecondary">AI-Powered Mock Exams</span></div>
+                <div class="flex items-center gap-2"><i data-lucide="check" class="h-[15px] w-[15px] text-brand-primary"></i><span class="text-[14px] text-brand-textSecondary">1-on-1 Doubt Sessions</span></div>
+              </div>
+            </div>
+          </div>
+          <p class="text-[11px] text-brand-textMuted">Discount valid for first purchase only · cannot be combined with other offers.</p>
         </div>
-        <div class="mt-3 rounded-lg bg-brand-successBg px-3 py-2 text-xs text-brand-success flex items-center gap-1.5">
-          <i data-lucide="badge-check" class="h-4 w-4"></i><span id="savings">You save ₹1,200 with your referral.</span>
-        </div>
-        <button class="btn-brand w-full rounded-lg py-3 text-sm font-semibold mt-4">Pay <span id="payBtn">₹6,799</span> &amp; Subscribe</button>
-        <p class="text-[11px] text-brand-textMuted text-center mt-3">Discount valid for first purchase only · cannot be combined with other offers.</p>
-      </aside>
+      </div>
     </div>
-
-    <p class="text-center text-xs text-brand-textMuted mt-10">Referral System mockup · P3-03 · Referee checkout · for review only</p>
   </main>
 
+  <!-- success modal -->
+  <div id="ok" class="fixed inset-0 z-50 hidden items-center justify-center bg-black/50 p-4">
+    <div class="w-full max-w-sm rounded-[16px] bg-white p-8 text-center shadow-xl">
+      <div class="mx-auto h-16 w-16 rounded-full bg-[rgba(43,160,128,0.12)] flex items-center justify-center text-[#2ba080]"><i data-lucide="check" class="h-8 w-8"></i></div>
+      <p class="mt-4 text-xl font-bold">Payment Successful</p>
+      <p class="mt-1 text-sm text-brand-textMuted">Welcome to Advanced — NEET 2027. Priya will earn her referral reward once this payment is confirmed.</p>
+      <a href="index.html" class="mt-5 inline-block w-full rounded-[12px] py-3 text-sm font-semibold text-white" style="background-image:linear-gradient(173deg,#006169,#0a7c85)">Go to Dashboard</a>
+    </div>
+  </div>
+
 <script>
-  const PLANS = { standard:{label:"Standard (yearly)", price:4999}, advanced:{label:"Advanced (yearly)", price:7999} };
-  const RATE = 0.15;
-  const inr = n => "₹"+n.toLocaleString("en-IN");
-  function selectPlan(key){
-    document.querySelectorAll(".plan").forEach(p=>{p.classList.remove("sel");p.classList.remove("border-brand-primary");p.classList.add("border-[#e6e8e9]");});
-    const el=document.getElementById("plan-"+key); el.classList.add("sel","border-brand-primary"); el.classList.remove("border-[#e6e8e9]");
-    const p=PLANS[key]; const disc=Math.round(p.price*RATE); const total=p.price-disc;
-    document.getElementById("sumPlan").textContent=p.label;
-    document.getElementById("sumSub").textContent=inr(p.price);
-    document.getElementById("sumDisc").textContent="−"+inr(disc);
-    document.getElementById("sumTotal").textContent=inr(total);
-    document.getElementById("payBtn").textContent=inr(total);
-    document.getElementById("savings").textContent="You save "+inr(disc)+" with your referral.";
+  function toggleAck(){
+    const on=document.getElementById('ack').checked, b=document.getElementById('payBtn');
+    b.disabled=!on; b.classList.toggle('opacity-50',!on); b.classList.toggle('cursor-not-allowed',!on);
   }
-  selectPlan('advanced');
+  function pay(){ if(document.getElementById('ack').checked){ const m=document.getElementById('ok'); m.classList.remove('hidden'); m.classList.add('flex'); lucide.createIcons(); } }
   lucide.createIcons();
 </script>
 </body>
