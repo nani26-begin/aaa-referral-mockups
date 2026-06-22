@@ -115,7 +115,12 @@ tailwind.config = { theme: { extend: {
 
         <section class="card lg:col-span-2 p-6">
           <h2 class="text-lg font-semibold mb-4">Top Referrers</h2>
-          <div id="topReferrers" class="space-y-3"></div>
+          <div id="topReferrers" class="space-y-3">
+            <div class="flex items-center gap-3 rounded-[12px] border border-[#eef2f2] px-4 py-3"><span class="h-8 w-8 rounded-full flex items-center justify-center text-sm font-bold bg-[#fff3cd] text-[#b8860b]">1</span><span class="h-8 w-8 rounded-full bg-brand-primary text-white text-xs font-bold flex items-center justify-center">PS</span><div class="flex-1 min-w-0"><p class="font-medium truncate">Priya Sharma</p><p class="text-xs text-brand-textMuted">14 successful referrals</p></div><span class="text-sm font-semibold text-brand-success">₹42,000</span></div>
+            <div class="flex items-center gap-3 rounded-[12px] border border-[#eef2f2] px-4 py-3"><span class="h-8 w-8 rounded-full flex items-center justify-center text-sm font-bold bg-gray-100 text-brand-textSecondary">2</span><span class="h-8 w-8 rounded-full bg-brand-primary text-white text-xs font-bold flex items-center justify-center">AM</span><div class="flex-1 min-w-0"><p class="font-medium truncate">Arjun Mehta</p><p class="text-xs text-brand-textMuted">11 successful referrals</p></div><span class="text-sm font-semibold text-brand-success">₹33,000</span></div>
+            <div class="flex items-center gap-3 rounded-[12px] border border-[#eef2f2] px-4 py-3"><span class="h-8 w-8 rounded-full flex items-center justify-center text-sm font-bold bg-[#fdeae6] text-brand-warning">3</span><span class="h-8 w-8 rounded-full bg-brand-primary text-white text-xs font-bold flex items-center justify-center">SK</span><div class="flex-1 min-w-0"><p class="font-medium truncate">Sana Kapoor</p><p class="text-xs text-brand-textMuted">9 successful referrals</p></div><span class="text-sm font-semibold text-brand-success">₹27,000</span></div>
+            <div class="flex items-center gap-3 rounded-[12px] border border-[#eef2f2] px-4 py-3"><span class="h-8 w-8 rounded-full flex items-center justify-center text-sm font-bold bg-brand-subtle text-brand-primary">4</span><span class="h-8 w-8 rounded-full bg-brand-primary text-white text-xs font-bold flex items-center justify-center">DP</span><div class="flex-1 min-w-0"><p class="font-medium truncate">Dev Patel</p><p class="text-xs text-brand-textMuted">7 successful referrals</p></div><span class="text-sm font-semibold text-brand-success">₹21,000</span></div>
+          </div>
         </section>
       </div>
 
@@ -128,7 +133,11 @@ tailwind.config = { theme: { extend: {
         <div class="overflow-x-auto">
           <table class="w-full text-sm">
             <thead class="bg-brand-page text-brand-textMuted text-left"><tr><th class="px-6 py-3 font-medium">Code</th><th class="px-6 py-3 font-medium">Discount</th><th class="px-6 py-3 font-medium">Validity</th><th class="px-6 py-3 font-medium">Usage limit</th><th class="px-6 py-3 font-medium">Packages</th><th class="px-6 py-3 font-medium">Status</th></tr></thead>
-            <tbody id="campTable" class="divide-y divide-[#eef2f2]"></tbody>
+            <tbody id="campTable" class="divide-y divide-[#eef2f2]">
+              <tr class="row"><td class="px-6 py-3 font-semibold tracking-wider text-brand-primary">WELCOME15</td><td class="px-6 py-3">15%</td><td class="px-6 py-3 text-brand-textMuted">01 Jun – 30 Jun 2026</td><td class="px-6 py-3 text-brand-textMuted">Unlimited</td><td class="px-6 py-3 text-brand-textMuted">All packages</td><td class="px-6 py-3"><span class="px-2.5 py-1 rounded-full text-xs font-medium bg-brand-successBg text-brand-success">Active</span></td></tr>
+              <tr class="row"><td class="px-6 py-3 font-semibold tracking-wider text-brand-primary">CRASH500</td><td class="px-6 py-3">₹500 flat</td><td class="px-6 py-3 text-brand-textMuted">15 Jun – 15 Jul 2026</td><td class="px-6 py-3 text-brand-textMuted">Fixed: 1,000 uses</td><td class="px-6 py-3 text-brand-textMuted">Crash Course</td><td class="px-6 py-3"><span class="px-2.5 py-1 rounded-full text-xs font-medium bg-brand-successBg text-brand-success">Active</span></td></tr>
+              <tr class="row"><td class="px-6 py-3 font-semibold tracking-wider text-brand-primary">EARLYBIRD</td><td class="px-6 py-3">20%</td><td class="px-6 py-3 text-brand-textMuted">01 May – 31 May 2026</td><td class="px-6 py-3 text-brand-textMuted">One-time use</td><td class="px-6 py-3 text-brand-textMuted">Advanced Plan</td><td class="px-6 py-3"><span class="px-2.5 py-1 rounded-full text-xs font-medium bg-gray-100 text-brand-textMuted">Expired</span></td></tr>
+            </tbody>
           </table>
         </div>
       </section>
@@ -139,7 +148,12 @@ tailwind.config = { theme: { extend: {
         <div class="overflow-x-auto">
           <table class="w-full text-sm">
             <thead class="bg-brand-page text-brand-textMuted"><tr><th class="px-6 py-3 font-medium text-left">Student</th><th class="px-6 py-3 font-medium text-left">Reward</th><th class="px-6 py-3 font-medium text-right">Tokens</th><th class="px-6 py-3 font-medium text-left">Requested</th><th class="px-6 py-3 font-medium text-right">Action</th></tr></thead>
-            <tbody id="redTable" class="divide-y divide-[#eef2f2]"></tbody>
+            <tbody id="redTable" class="divide-y divide-[#eef2f2]">
+              <tr class="row" id="red0"><td class="px-6 py-4"><div class="flex items-center gap-3"><span class="w-9 h-9 rounded-full bg-brand-primary text-white text-xs font-bold flex items-center justify-center">RV</span><span class="font-semibold">Rahul Verma</span></div></td><td class="px-6 py-4 text-brand-textSecondary">₹200 renewal discount</td><td class="px-6 py-4 text-right font-semibold">2,000 🪙</td><td class="px-6 py-4 text-brand-textMuted">19 Jun 2026</td><td class="px-6 py-4 text-right whitespace-nowrap"><button onclick="resolveRed(0,'approved')" class="px-4 py-1.5 rounded-[10px] text-[13px] font-semibold bg-brand-successBg text-brand-success hover:opacity-80">Approve</button><button onclick="resolveRed(0,'rejected')" class="px-4 py-1.5 rounded-[10px] text-[13px] font-semibold bg-brand-warningBg text-brand-warning hover:opacity-80 ml-2">Reject</button></td></tr>
+              <tr class="row" id="red1"><td class="px-6 py-4"><div class="flex items-center gap-3"><span class="w-9 h-9 rounded-full bg-brand-primary text-white text-xs font-bold flex items-center justify-center">SK</span><span class="font-semibold">Sana Kapoor</span></div></td><td class="px-6 py-4 text-brand-textSecondary">Extra mock tests (hybrid)</td><td class="px-6 py-4 text-right font-semibold">1,000 + ₹200 🪙</td><td class="px-6 py-4 text-brand-textMuted">18 Jun 2026</td><td class="px-6 py-4 text-right whitespace-nowrap"><button onclick="resolveRed(1,'approved')" class="px-4 py-1.5 rounded-[10px] text-[13px] font-semibold bg-brand-successBg text-brand-success hover:opacity-80">Approve</button><button onclick="resolveRed(1,'rejected')" class="px-4 py-1.5 rounded-[10px] text-[13px] font-semibold bg-brand-warningBg text-brand-warning hover:opacity-80 ml-2">Reject</button></td></tr>
+              <tr class="row" id="red2"><td class="px-6 py-4"><div class="flex items-center gap-3"><span class="w-9 h-9 rounded-full bg-brand-primary text-white text-xs font-bold flex items-center justify-center">DP</span><span class="font-semibold">Dev Patel</span></div></td><td class="px-6 py-4 text-brand-textSecondary">₹100 renewal discount</td><td class="px-6 py-4 text-right font-semibold">1,000 🪙</td><td class="px-6 py-4 text-brand-textMuted">18 Jun 2026</td><td class="px-6 py-4 text-right whitespace-nowrap"><button onclick="resolveRed(2,'approved')" class="px-4 py-1.5 rounded-[10px] text-[13px] font-semibold bg-brand-successBg text-brand-success hover:opacity-80">Approve</button><button onclick="resolveRed(2,'rejected')" class="px-4 py-1.5 rounded-[10px] text-[13px] font-semibold bg-brand-warningBg text-brand-warning hover:opacity-80 ml-2">Reject</button></td></tr>
+              <tr class="row" id="red3"><td class="px-6 py-4"><div class="flex items-center gap-3"><span class="w-9 h-9 rounded-full bg-brand-primary text-white text-xs font-bold flex items-center justify-center">IR</span><span class="font-semibold">Isha Rao</span></div></td><td class="px-6 py-4 text-brand-textSecondary">₹300 renewal discount</td><td class="px-6 py-4 text-right font-semibold">3,000 🪙</td><td class="px-6 py-4 text-brand-textMuted">17 Jun 2026</td><td class="px-6 py-4 text-right whitespace-nowrap"><button onclick="resolveRed(3,'approved')" class="px-4 py-1.5 rounded-[10px] text-[13px] font-semibold bg-brand-successBg text-brand-success hover:opacity-80">Approve</button><button onclick="resolveRed(3,'rejected')" class="px-4 py-1.5 rounded-[10px] text-[13px] font-semibold bg-brand-warningBg text-brand-warning hover:opacity-80 ml-2">Reject</button></td></tr>
+            </tbody>
           </table>
         </div>
       </section>
@@ -150,7 +164,11 @@ tailwind.config = { theme: { extend: {
         <div class="overflow-x-auto">
           <table class="w-full text-sm">
             <thead class="bg-brand-page text-brand-textMuted text-left"><tr><th class="px-6 py-3 font-medium">Referrer</th><th class="px-6 py-3 font-medium">Referee</th><th class="px-6 py-3 font-medium">Flag Reason</th><th class="px-6 py-3 font-medium">Date</th><th class="px-6 py-3 font-medium text-right">Action</th></tr></thead>
-            <tbody id="flagTable" class="divide-y divide-[#eef2f2]"></tbody>
+            <tbody id="flagTable" class="divide-y divide-[#eef2f2]">
+              <tr class="row" id="flag0"><td class="px-6 py-3 font-medium">Rohit K.</td><td class="px-6 py-3 text-brand-textMuted">rohit.k2@gmail.com</td><td class="px-6 py-3"><span class="px-2.5 py-1 rounded-full text-xs font-medium bg-brand-warningBg text-brand-warning">Same device as referrer</span></td><td class="px-6 py-3 text-brand-textMuted">16 Jun 2026</td><td class="px-6 py-3 text-right whitespace-nowrap"><button onclick="resolveFlag(0,'approved')" class="px-3 py-1.5 rounded-[10px] text-xs font-semibold bg-brand-successBg text-brand-success hover:opacity-80">Approve</button><button onclick="resolveFlag(0,'rejected')" class="px-3 py-1.5 rounded-[10px] text-xs font-semibold bg-brand-warningBg text-brand-warning hover:opacity-80 ml-1">Reject</button></td></tr>
+              <tr class="row" id="flag1"><td class="px-6 py-3 font-medium">Amit V.</td><td class="px-6 py-3 text-brand-textMuted">amit.alt@gmail.com</td><td class="px-6 py-3"><span class="px-2.5 py-1 rounded-full text-xs font-medium bg-brand-warningBg text-brand-warning">Matching phone number</span></td><td class="px-6 py-3 text-brand-textMuted">14 Jun 2026</td><td class="px-6 py-3 text-right whitespace-nowrap"><button onclick="resolveFlag(1,'approved')" class="px-3 py-1.5 rounded-[10px] text-xs font-semibold bg-brand-successBg text-brand-success hover:opacity-80">Approve</button><button onclick="resolveFlag(1,'rejected')" class="px-3 py-1.5 rounded-[10px] text-xs font-semibold bg-brand-warningBg text-brand-warning hover:opacity-80 ml-1">Reject</button></td></tr>
+              <tr class="row" id="flag2"><td class="px-6 py-3 font-medium">Neha S.</td><td class="px-6 py-3 text-brand-textMuted">neha.s+1@x.com</td><td class="px-6 py-3"><span class="px-2.5 py-1 rounded-full text-xs font-medium bg-brand-warningBg text-brand-warning">Multiple accounts detected</span></td><td class="px-6 py-3 text-brand-textMuted">13 Jun 2026</td><td class="px-6 py-3 text-right whitespace-nowrap"><button onclick="resolveFlag(2,'approved')" class="px-3 py-1.5 rounded-[10px] text-xs font-semibold bg-brand-successBg text-brand-success hover:opacity-80">Approve</button><button onclick="resolveFlag(2,'rejected')" class="px-3 py-1.5 rounded-[10px] text-xs font-semibold bg-brand-warningBg text-brand-warning hover:opacity-80 ml-1">Reject</button></td></tr>
+            </tbody>
           </table>
         </div>
       </section>
@@ -209,72 +227,54 @@ tailwind.config = { theme: { extend: {
 <div id="toast" class="fixed bottom-6 left-1/2 -translate-x-1/2 bg-brand-textPrimary text-white text-sm px-4 py-2 rounded-lg shadow-lg hidden">Done</div>
 
 <script>
-  // Top referrers
-  const top=[{name:"Priya Sharma",refs:14,revenue:"₹42,000"},{name:"Arjun Mehta",refs:11,revenue:"₹33,000"},{name:"Sana Kapoor",refs:9,revenue:"₹27,000"},{name:"Dev Patel",refs:7,revenue:"₹21,000"}];
-  const medal=["bg-[#fff3cd] text-[#b8860b]","bg-gray-100 text-brand-textSecondary","bg-[#fdeae6] text-brand-warning","bg-brand-subtle text-brand-primary"];
-  document.getElementById("topReferrers").innerHTML=top.map((t,i)=>`<div class="flex items-center gap-3 rounded-[12px] border border-[#eef2f2] px-4 py-3"><span class="h-8 w-8 rounded-full flex items-center justify-center text-sm font-bold ${medal[i]}">${i+1}</span><span class="h-8 w-8 rounded-full bg-brand-primary text-white text-xs font-bold flex items-center justify-center">${t.name.split(" ").map(w=>w[0]).join("")}</span><div class="flex-1 min-w-0"><p class="font-medium truncate">${t.name}</p><p class="text-xs text-brand-textMuted">${t.refs} successful referrals</p></div><span class="text-sm font-semibold text-brand-success">${t.revenue}</span></div>`).join("");
+  // Rows are static HTML (always visible). This script only adds interactivity.
+  // Each handler is independent so a single failure can't blank the page.
 
-  // Campaign codes
-  let camps=[
-    {code:"WELCOME15", disc:"15%", val:"01 Jun – 30 Jun 2026", limit:"Unlimited", pkg:"All packages", status:"Active"},
-    {code:"CRASH500", disc:"₹500 flat", val:"15 Jun – 15 Jul 2026", limit:"Fixed: 1,000 uses", pkg:"Crash Course", status:"Active"},
-    {code:"EARLYBIRD", disc:"20%", val:"01 May – 31 May 2026", limit:"One-time use", pkg:"Advanced Plan", status:"Expired"},
-  ];
-  function renderCamps(){
-    const sb={Active:"bg-brand-successBg text-brand-success",Expired:"bg-gray-100 text-brand-textMuted",Scheduled:"bg-brand-infoBg text-brand-info"};
-    document.getElementById("campTable").innerHTML=camps.map(c=>`<tr class="row"><td class="px-6 py-3 font-semibold tracking-wider text-brand-primary">${c.code}</td><td class="px-6 py-3">${c.disc}</td><td class="px-6 py-3 text-brand-textMuted">${c.val}</td><td class="px-6 py-3 text-brand-textMuted">${c.limit}</td><td class="px-6 py-3 text-brand-textMuted">${c.pkg}</td><td class="px-6 py-3"><span class="px-2.5 py-1 rounded-full text-xs font-medium ${sb[c.status]}">${c.status}</span></td></tr>`).join("");
-  }
-  renderCamps();
+  // --- Toast ---
+  let tt; function toast(m){var t=document.getElementById("toast"); if(!t) return; t.textContent=m; t.classList.remove("hidden"); clearTimeout(tt); tt=setTimeout(function(){t.classList.add("hidden");},1600);}
 
-  let limitChoice="Fixed: 500 uses";
-  function pickLimit(el){ document.querySelectorAll('.seg').forEach(s=>s.classList.remove('on')); el.classList.add('on'); limitChoice=el.dataset.limit; document.getElementById('cFixed').style.display = limitChoice.startsWith('Fixed')?'block':'none'; }
-  function togglePkg(el){ if(el.value==='All'&&el.checked){ document.querySelectorAll('.pkg').forEach(p=>{if(p.value!=='All')p.checked=false;}); } else if(el.value!=='All'&&el.checked){ document.querySelector('.pkg[value=All]').checked=false; } }
-  function openCamp(){ const m=document.getElementById("campModal"); m.classList.remove("hidden"); m.classList.add("flex"); lucide.createIcons(); }
-  function closeCamp(){ const m=document.getElementById("campModal"); m.classList.add("hidden"); m.classList.remove("flex"); }
-  function saveCamp(){
-    const code=document.getElementById('cCode').value.toUpperCase()||"CODE";
-    const type=document.getElementById('cType').value;
-    const val=document.getElementById('cVal').value;
-    const disc=type==='%'?val+'%':'₹'+val+' flat';
-    const fmt=d=>new Date(d).toLocaleDateString('en-GB',{day:'2-digit',month:'short',year:'numeric'});
-    const val_=fmt(document.getElementById('cStart').value)+' – '+fmt(document.getElementById('cEnd').value);
-    let limit=limitChoice; if(limit.startsWith('Fixed')) limit='Fixed: '+(+document.getElementById('cFixed').value).toLocaleString()+' uses';
-    const pkgs=[...document.querySelectorAll('.pkg:checked')].map(p=>p.value); const pkg=pkgs.includes('All')||!pkgs.length?'All packages':pkgs.join(', ');
-    camps.unshift({code,disc,val:val_,limit,pkg,status:"Active"});
-    renderCamps(); closeCamp(); toast("Campaign code "+code+" created");
-  }
-
-  // Redemption requests
-  let reds=[
-    {id:0, name:"Rahul Verma", reward:"₹200 renewal discount",    tokens:"2,000",       date:"19 Jun 2026"},
-    {id:1, name:"Sana Kapoor", reward:"Extra mock tests (hybrid)", tokens:"1,000 + ₹200", date:"18 Jun 2026"},
-    {id:2, name:"Dev Patel",   reward:"₹100 renewal discount",    tokens:"1,000",       date:"18 Jun 2026"},
-    {id:3, name:"Isha Rao",    reward:"₹300 renewal discount",    tokens:"3,000",       date:"17 Jun 2026"},
-  ];
-  function renderReds(){
-    document.getElementById("redTable").innerHTML=reds.map(r=>`<tr class="row" id="red${r.id}"><td class="px-6 py-4"><div class="flex items-center gap-3"><span class="w-9 h-9 rounded-full bg-brand-primary text-white text-xs font-bold flex items-center justify-center">${r.name.split(" ").map(w=>w[0]).join("")}</span><span class="font-semibold">${r.name}</span></div></td><td class="px-6 py-4 text-brand-textSecondary">${r.reward}</td><td class="px-6 py-4 text-right font-semibold">${r.tokens} 🪙</td><td class="px-6 py-4 text-brand-textMuted">${r.date}</td><td class="px-6 py-4 text-right whitespace-nowrap"><button onclick="resolveRed(${r.id},'approved')" class="px-4 py-1.5 rounded-[10px] text-[13px] font-semibold bg-brand-successBg text-brand-success hover:opacity-80">Approve</button><button onclick="resolveRed(${r.id},'rejected')" class="px-4 py-1.5 rounded-[10px] text-[13px] font-semibold bg-brand-warningBg text-brand-warning hover:opacity-80 ml-2">Reject</button></td></tr>`).join("");
-  }
-  renderReds();
-  let pending=4;
+  // --- Redemption requests: approve / reject ---
+  var pending=4;
   function resolveRed(id,a){
-    const r=document.getElementById("red"+id); const c=a==="approved"?"text-brand-success":"text-brand-warning";
-    const note=a==="approved"?"Approved ✓ — tokens deducted":"Rejected ✕ — no tokens deducted";
-    r.querySelector("td:last-child").innerHTML=`<span class="text-[13px] font-semibold ${c}">${note}</span>`;
-    pending--; document.getElementById("redCount").textContent=pending+" pending";
+    var r=document.getElementById("red"+id); if(!r) return;
+    var c=a==="approved"?"text-brand-success":"text-brand-warning";
+    var note=a==="approved"?"Approved ✓ — tokens deducted":"Rejected ✕ — no tokens deducted";
+    r.querySelector("td:last-child").innerHTML='<span class="text-[13px] font-semibold '+c+'">'+note+'</span>';
+    pending--; var rc=document.getElementById("redCount"); if(rc) rc.textContent=pending+" pending";
     toast("Redemption "+a);
   }
 
-  // Flagged referrals — spec reasons only (RF-16 same email/phone/device, RF-17 multiple accounts)
-  const flags=[
-    {referrer:"Rohit K.", referee:"rohit.k2@gmail.com", reason:"Same device as referrer", date:"16 Jun 2026"},
-    {referrer:"Amit V.",  referee:"amit.alt@gmail.com", reason:"Matching phone number",    date:"14 Jun 2026"},
-    {referrer:"Neha S.",  referee:"neha.s+1@x.com",     reason:"Multiple accounts detected", date:"13 Jun 2026"},
-  ];
-  document.getElementById("flagTable").innerHTML=flags.map((f,i)=>`<tr class="row" id="flag${i}"><td class="px-6 py-3 font-medium">${f.referrer}</td><td class="px-6 py-3 text-brand-textMuted">${f.referee}</td><td class="px-6 py-3"><span class="px-2.5 py-1 rounded-full text-xs font-medium bg-brand-warningBg text-brand-warning">${f.reason}</span></td><td class="px-6 py-3 text-brand-textMuted">${f.date}</td><td class="px-6 py-3 text-right whitespace-nowrap"><button onclick="resolveFlag(${i},'approved')" class="px-3 py-1.5 rounded-[10px] text-xs font-semibold bg-brand-successBg text-brand-success hover:opacity-80">Approve</button><button onclick="resolveFlag(${i},'rejected')" class="px-3 py-1.5 rounded-[10px] text-xs font-semibold bg-brand-warningBg text-brand-warning hover:opacity-80 ml-1">Reject</button></td></tr>`).join("");
-  function resolveFlag(i,a){const r=document.getElementById("flag"+i);const c=a==="approved"?"text-brand-success":"text-brand-warning";r.querySelector("td:last-child").innerHTML=`<span class="text-xs font-semibold ${c} capitalize">${a} ✓</span>`;toast("Referral "+a);}
+  // --- Flagged referrals: approve / reject ---
+  function resolveFlag(i,a){
+    var r=document.getElementById("flag"+i); if(!r) return;
+    var c=a==="approved"?"text-brand-success":"text-brand-warning";
+    r.querySelector("td:last-child").innerHTML='<span class="text-xs font-semibold '+c+' capitalize">'+a+' ✓</span>';
+    toast("Referral "+a);
+  }
 
-  let tt; function toast(m){const t=document.getElementById("toast");t.textContent=m;t.classList.remove("hidden");clearTimeout(tt);tt=setTimeout(()=>t.classList.add("hidden"),1600);}
-  lucide.createIcons();
+  // --- Campaign code modal ---
+  var limitChoice="Fixed: 500 uses";
+  function pickLimit(el){ document.querySelectorAll('.seg').forEach(function(s){s.classList.remove('on');}); el.classList.add('on'); limitChoice=el.dataset.limit; var f=document.getElementById('cFixed'); if(f) f.style.display=limitChoice.indexOf('Fixed')===0?'block':'none'; }
+  function togglePkg(el){ if(el.value==='All'&&el.checked){ document.querySelectorAll('.pkg').forEach(function(p){if(p.value!=='All')p.checked=false;}); } else if(el.value!=='All'&&el.checked){ document.querySelector('.pkg[value=All]').checked=false; } }
+  function openCamp(){ var m=document.getElementById("campModal"); m.classList.remove("hidden"); m.classList.add("flex"); if(window.lucide) lucide.createIcons(); }
+  function closeCamp(){ var m=document.getElementById("campModal"); m.classList.add("hidden"); m.classList.remove("flex"); }
+  function saveCamp(){
+    var code=document.getElementById('cCode').value.toUpperCase()||"CODE";
+    var type=document.getElementById('cType').value;
+    var val=document.getElementById('cVal').value;
+    var disc=type==='%'?val+'%':'₹'+val+' flat';
+    var fmt=function(d){return new Date(d).toLocaleDateString('en-GB',{day:'2-digit',month:'short',year:'numeric'});};
+    var validity=fmt(document.getElementById('cStart').value)+' – '+fmt(document.getElementById('cEnd').value);
+    var limit=limitChoice; if(limit.indexOf('Fixed')===0) limit='Fixed: '+(+document.getElementById('cFixed').value).toLocaleString()+' uses';
+    var pkgs=[].slice.call(document.querySelectorAll('.pkg:checked')).map(function(p){return p.value;});
+    var pkg=pkgs.indexOf('All')>-1||!pkgs.length?'All packages':pkgs.join(', ');
+    var row='<tr class="row"><td class="px-6 py-3 font-semibold tracking-wider text-brand-primary">'+code+'</td><td class="px-6 py-3">'+disc+'</td><td class="px-6 py-3 text-brand-textMuted">'+validity+'</td><td class="px-6 py-3 text-brand-textMuted">'+limit+'</td><td class="px-6 py-3 text-brand-textMuted">'+pkg+'</td><td class="px-6 py-3"><span class="px-2.5 py-1 rounded-full text-xs font-medium bg-brand-successBg text-brand-success">Active</span></td></tr>';
+    document.getElementById('campTable').insertAdjacentHTML('afterbegin',row);
+    closeCamp(); toast("Campaign code "+code+" created");
+  }
+
+  // --- Icons (guarded: never blocks the page if the CDN is unavailable) ---
+  if(window.lucide) lucide.createIcons();
 </script>
 </body>
 </html>
